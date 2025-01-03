@@ -1,0 +1,1 @@
+# PicStore web shop & auction of paintings
