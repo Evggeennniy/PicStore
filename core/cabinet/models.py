@@ -38,6 +38,7 @@ class Size(models.Model):
 
 
 class Lot(models.Model):
+    author = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='lots')
     name = models.CharField(max_length=255)
     description = models.TextField()
     short_description = models.CharField(max_length=512)
@@ -47,7 +48,6 @@ class Lot(models.Model):
 
 class FixedLot(Lot):
     price = models.IntegerField(default=0, blank=True)
-
 
     def __str__(self):
         return f"Fixed Lot: {self.name} — {self.price} USD"
