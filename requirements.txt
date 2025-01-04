@@ -1,0 +1,7 @@
+Django>=5.0,<6.0                   # Остання стабільна версія Django
+djangorestframework                # Django REST Framework
+dj-rest-auth                       # Готові ендпоінти автентифікації
+django-allauth                     # Управління користувачами
+requests
+django-phonenumber-field 
+phonenumbers
