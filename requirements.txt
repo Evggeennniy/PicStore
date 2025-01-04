@@ -5,3 +5,4 @@ django-allauth                     # Управління користувача
 requests
 django-phonenumber-field 
 phonenumbers
+Pillow
