@@ -6,5 +6,5 @@ from .models import CustomerUser
 class CustomUserAdmin(UserAdmin):
     model = CustomerUser
     fieldsets = UserAdmin.fieldsets + (
-        ("Personal info", {'fields': ('phone_number',)}),  # Зробіть це кортежем
+        ("Додаткові поля", {'fields': ('phone_number',)}),  # Зробіть це кортежем
     )

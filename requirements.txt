@@ -6,3 +6,4 @@ requests
 django-phonenumber-field 
 phonenumbers
 Pillow
+django-jazzmin
