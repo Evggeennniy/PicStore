@@ -41,11 +41,11 @@ class LotPhotoSerializer(serializers.ModelSerializer):
 
 
 class BidSerializer(serializers.ModelSerializer):
-    customer = serializers.SerializerMethodField()
+    bidder = serializers.SerializerMethodField()
 
     class Meta:
         model = Bid
-        fields = ["value", "bidder_name"]
+        fields = ["value", "bidder"]
 
     def get_bidder(self, obj):
         return obj.get_bidder_name()
