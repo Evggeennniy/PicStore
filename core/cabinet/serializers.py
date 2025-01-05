@@ -1,7 +1,32 @@
 # filepath: /c:/project/PicStore/core/cabinet/serializers.py
 from rest_framework import serializers
 from authentication.models import CustomerUser
-from .models import Size, Bid, Artist, Agreement, FixedLot, BidLot, Property
+from .models import Size, Bid, Artist, Agreement, FixedLot, BidLot, Property, LotPhoto
+
+"""
+
+Serializers Base Class
+
+"""
+
+
+"""
+
+Serializers for the Lot model and related models.
+
+"""
+
+
+class LotPhotoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LotPhoto
+        fields = ["photo"]
+
+    def to_representation(self, instance):
+        # Повертаємо лише назву файлу замість повного шляху
+        representation = super().to_representation(instance)
+        representation = instance.photo.name
+        return representation
 
 
 class BidSerializer(serializers.ModelSerializer):
@@ -22,6 +47,7 @@ class SizeSerializer(serializers.ModelSerializer):
 
 
 class FixedLotSerializer(serializers.ModelSerializer):
+    photos = LotPhotoSerializer(many=True, read_only=True)
     size = SizeSerializer()
 
     class Meta:
@@ -33,11 +59,14 @@ class FixedLotSerializer(serializers.ModelSerializer):
             "description",
             "is_recommend",
             "price",
+            "size",
             "photo",
+            "photos",
         ]
 
 
 class BidLotSerializer(serializers.ModelSerializer):
+    photos = LotPhotoSerializer(many=True, read_only=True)
     price = serializers.SerializerMethodField()
     size = SizeSerializer()
     bids = BidSerializer(many=True)
@@ -54,6 +83,7 @@ class BidLotSerializer(serializers.ModelSerializer):
             "size",
             "bids",
             "photo",
+            "photos",
         ]
 
     def get_price(self, obj):
