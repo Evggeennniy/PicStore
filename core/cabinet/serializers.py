@@ -26,7 +26,15 @@ class FixedLotSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FixedLot
-        fields = ["id", "name", "price", "description", "is_recommend", "price"]
+        fields = [
+            "id",
+            "name",
+            "price",
+            "description",
+            "is_recommend",
+            "price",
+            "photo",
+        ]
 
 
 class BidLotSerializer(serializers.ModelSerializer):
@@ -45,6 +53,7 @@ class BidLotSerializer(serializers.ModelSerializer):
             "price",
             "size",
             "bids",
+            "photo",
         ]
 
     def get_price(self, obj):
@@ -67,7 +76,15 @@ class AgreementSerializer(serializers.ModelSerializer):
 class FixedLotArtistSerializer(serializers.ModelSerializer):
     class Meta:
         model = FixedLot
-        fields = ["id", "name", "price", "short_description", "is_recommend", "price"]
+        fields = [
+            "id",
+            "name",
+            "price",
+            "short_description",
+            "is_recommend",
+            "price",
+            "photo",
+        ]
 
 
 class BidLotArtistSerializer(serializers.ModelSerializer):
@@ -75,7 +92,15 @@ class BidLotArtistSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = BidLot
-        fields = ["id", "name", "price", "short_description", "is_recommend", "price"]
+        fields = [
+            "id",
+            "name",
+            "price",
+            "short_description",
+            "is_recommend",
+            "price",
+            "photo",
+        ]
 
     def get_price(self, obj):
         return obj.get_current_price()

@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 from authentication.models import CustomerUser
+import rest_framework
 
 
 class Agreement(models.Model):
@@ -42,7 +43,7 @@ class Lot(models.Model):
     short_description = models.CharField(max_length=512)
     is_recommend = models.BooleanField(default=False)
     size = models.ForeignKey(Size, on_delete=models.CASCADE, related_name="lot")
-    main_photo = models.ImageField(upload_to="lot/main/")
+    photo = models.ImageField(upload_to="lot/main/")
 
     def __str__(self):
         return self.name
@@ -130,10 +131,16 @@ class PropertyName(models.Model):
     )
     name = models.CharField(max_length=64)
 
+    def __str__(self):
+        return self.name
+
 
 class Property(models.Model):
     name = models.ForeignKey(
         PropertyName, on_delete=models.CASCADE, related_name="properties"
     )
-    value = models.IntegerField()
+    value = models.CharField(max_length=64)
     lot = models.ForeignKey(Lot, on_delete=models.CASCADE, related_name="properties")
+
+    def __str__(self):
+        return f"{self.name} - {self.value}"
