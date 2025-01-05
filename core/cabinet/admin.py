@@ -3,8 +3,17 @@ from django.contrib import admin
 # Register your models here.
 from django.contrib import admin
 from .models import (
-    Agreement, Artist, Size, FixedLot, BidLot, Bid,
-    RequestOrder, Question, PropertyName, Property
+    Agreement,
+    Artist,
+    Size,
+    FixedLot,
+    BidLot,
+    Bid,
+    RequestOrder,
+    Question,
+    PropertyName,
+    Property,
+    LotPhoto,
 )
 
 
@@ -13,6 +22,11 @@ from .models import (
 class AgreementAdmin(admin.ModelAdmin):
     list_display = ("id", "open", "close")
     search_fields = ("open", "close")
+
+
+class LotPhotoInline(admin.TabularInline):  # або admin.StackedInline
+    model = LotPhoto
+    extra = 1
 
 
 class FixedLotInline(admin.TabularInline):
@@ -35,7 +49,7 @@ class ArtistAdmin(admin.ModelAdmin):
     list_display = ("username", "country", "city", "experience")
     search_fields = ("username", "country", "city")
     list_filter = ("country",)
-    inlines = [ FixedLotInline, BidLotInline, PropertyNameInline]
+    inlines = [FixedLotInline, BidLotInline, PropertyNameInline]
 
 
 # Size Model Configuration
@@ -50,12 +64,13 @@ class PropertyInline(admin.TabularInline):
     extra = 1  # Додаємо порожній рядок для введення
     fields = ("name", "value")  # Поля, які будуть відображені
 
+
 # FixedLot Model Configuration
 @admin.register(FixedLot)
 class FixedLotAdmin(admin.ModelAdmin):
     list_display = ("name", "price")
     search_fields = ("name", "price")
-    inlines = [PropertyInline]
+    inlines = [PropertyInline, LotPhotoInline]
 
 
 class BidInline(admin.TabularInline):
@@ -70,11 +85,11 @@ class BidLotAdmin(admin.ModelAdmin):
     list_display = ("name", "starting_price", "auction_end_time")
     search_fields = ("name", "starting_price")
     list_filter = ("auction_end_time",)
-    inlines = [PropertyInline, BidInline]
+    inlines = [PropertyInline, BidInline, LotPhotoInline]
 
     def highest_bid(self, obj):
         # Знаходимо найвищу ставку для цього лоту
-        highest_bid = obj.bids.order_by('-value').first()
+        highest_bid = obj.bids.order_by("-value").first()
         return highest_bid.value if highest_bid else "No bids yet"
 
 
