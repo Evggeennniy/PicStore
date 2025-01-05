@@ -93,7 +93,7 @@ class Bid(models.Model):
     def __str__(self):
         return f"Bid on {self.lot.name} by {self.bidder.username} — {self.value} USD"
 
-    def get_customer_name(self):
+    def get_bidder_name(self):
         return self.bidder.username
 
 
