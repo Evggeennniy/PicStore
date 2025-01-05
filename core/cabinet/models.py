@@ -73,6 +73,7 @@ class BidLot(Lot):
     )
     starting_price = models.IntegerField(default=1000)
     auction_end_time = models.DateTimeField()
+    notified = models.BooleanField(default=False)
 
     def __str__(self):
         return f"Bid Lot: {self.name} — Starting Price: {self.starting_price} USD"
