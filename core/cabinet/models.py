@@ -125,7 +125,7 @@ class Question(models.Model):
     asked_at = models.DateTimeField(auto_now_add=True)
 
     def get_telegram_text(self):
-        return f"❓Question  {self.lot.name}) by {self.buyer.username}"
+        return f"№{self.id} ❓\n{self.lot.name}) \n{self.buyer.username}\n {self.buyer.email}\n {self.buyer.phone_number}\n{self.buyer.first_name} {self.buyer.last_name}"
 
 
 class PropertyName(models.Model):
