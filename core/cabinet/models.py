@@ -13,8 +13,8 @@ class Agreement(models.Model):
 
 
 class Artist(AbstractUser):
-    banner_image = models.ImageField(upload_to='artist_banners/', blank=True, null=True)
-    avatar_image = models.ImageField(upload_to='artist_avatars/', blank=True, null=True)
+    banner_image = models.ImageField(upload_to='banners/', blank=True, null=True)
+    avatar_image = models.ImageField(upload_to='avatars/', blank=True, null=True)
     bio = models.TextField(max_length=1024, blank=True)
     country = models.CharField(max_length=255, blank=True)
     city = models.CharField(max_length=255, blank=True)
