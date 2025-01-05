@@ -19,7 +19,7 @@ def artist_detail(request, username):
 @api_view(["GET"])
 def fixedlot_detail(request, pk):
     fixed_lot = get_object_or_404(
-        FixedLot.objects.prefetch_related("size", "photos"), pk=pk
+        FixedLot.objects.prefetch_related("size", "photos", "properties"), pk=pk
     )
     serializer = FixedLotSerializer(fixed_lot)
     return Response(serializer.data)
@@ -28,7 +28,7 @@ def fixedlot_detail(request, pk):
 @api_view(["GET"])
 def bidlot_detail(request, pk):
     bid_lot = get_object_or_404(
-        BidLot.objects.prefetch_related("bids", "size", "photos"), pk=pk
+        BidLot.objects.prefetch_related("bids", "size", "photos", "properties"), pk=pk
     )
     serializer = BidLotSerializer(bid_lot)
     return Response(serializer.data)

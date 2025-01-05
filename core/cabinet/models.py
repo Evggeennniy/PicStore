@@ -142,5 +142,8 @@ class Property(models.Model):
     value = models.CharField(max_length=64)
     lot = models.ForeignKey(Lot, on_delete=models.CASCADE, related_name="properties")
 
+    def get_propertie_name(self):
+        return self.name.name
+
     def __str__(self):
-        return f"{self.name} - {self.value}"
+        return f"{self.name.name} - {self.value}"

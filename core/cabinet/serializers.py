@@ -10,6 +10,17 @@ Serializers Base Class
 """
 
 
+class PropertiesSerializer(serializers.ModelSerializer):
+    name = serializers.SerializerMethodField()
+
+    def get_name(self, obj):
+        return obj.get_propertie_name()
+
+    class Meta:
+        model = Property
+        fields = ["name", "value"]
+
+
 """
 
 Serializers for the Lot model and related models.
@@ -49,6 +60,7 @@ class SizeSerializer(serializers.ModelSerializer):
 class FixedLotSerializer(serializers.ModelSerializer):
     photos = LotPhotoSerializer(many=True, read_only=True)
     size = SizeSerializer()
+    properties = PropertiesSerializer(many=True)
 
     class Meta:
         model = FixedLot
@@ -62,6 +74,7 @@ class FixedLotSerializer(serializers.ModelSerializer):
             "size",
             "photo",
             "photos",
+            "properties",
         ]
 
 
@@ -70,6 +83,7 @@ class BidLotSerializer(serializers.ModelSerializer):
     price = serializers.SerializerMethodField()
     size = SizeSerializer()
     bids = BidSerializer(many=True)
+    properties = PropertiesSerializer(many=True)
 
     class Meta:
         model = BidLot
@@ -84,6 +98,7 @@ class BidLotSerializer(serializers.ModelSerializer):
             "bids",
             "photo",
             "photos",
+            "properties",
         ]
 
     def get_price(self, obj):
@@ -104,6 +119,8 @@ class AgreementSerializer(serializers.ModelSerializer):
 
 
 class FixedLotArtistSerializer(serializers.ModelSerializer):
+    properties = PropertiesSerializer(many=True)
+
     class Meta:
         model = FixedLot
         fields = [
@@ -114,11 +131,13 @@ class FixedLotArtistSerializer(serializers.ModelSerializer):
             "is_recommend",
             "price",
             "photo",
+            "properties",
         ]
 
 
 class BidLotArtistSerializer(serializers.ModelSerializer):
     price = serializers.SerializerMethodField()
+    properties = PropertiesSerializer(many=True)
 
     class Meta:
         model = BidLot
@@ -130,6 +149,7 @@ class BidLotArtistSerializer(serializers.ModelSerializer):
             "is_recommend",
             "price",
             "photo",
+            "properties",
         ]
 
     def get_price(self, obj):
