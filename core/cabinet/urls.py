@@ -5,5 +5,5 @@ from . import views
 
 
 urlpatterns = [
-    
+     path('<str:username>/', views.artist_detail, name='artist-detail'),
 ]

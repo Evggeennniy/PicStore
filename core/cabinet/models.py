@@ -38,7 +38,6 @@ class Size(models.Model):
 
 
 class Lot(models.Model):
-    author = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='lots')
     name = models.CharField(max_length=255)
     description = models.TextField()
     short_description = models.CharField(max_length=512)
@@ -47,17 +46,26 @@ class Lot(models.Model):
 
 
 class FixedLot(Lot):
+    author = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='fixed_lots')
     price = models.IntegerField(default=0, blank=True)
 
     def __str__(self):
         return f"Fixed Lot: {self.name} — {self.price} USD"
 
 class BidLot(Lot):
+    author = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='bid_lots')
     starting_price = models.IntegerField(default=0, blank=True)
     auction_end_time = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return f"Bid Lot: {self.name} — Starting Price: {self.starting_price} USD"
+
+    def get_current_price(self):
+        highest_bid = self.bids.order_by('-value').first()
+        if highest_bid:
+            return highest_bid.value
+        return self.starting_price
+
 
 class Bid(models.Model):
     value = models.IntegerField(blank=True, null=True)
