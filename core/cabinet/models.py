@@ -84,6 +84,9 @@ class BidLot(Lot):
             return highest_bid.amount
         return self.starting_price
 
+    def get_telegram_text_end(self):
+        return f"Аукціон закінчився! {self.name} — {self.get_current_price()} USD"
+
 
 class Bid(models.Model):
     amount = models.IntegerField()

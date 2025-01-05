@@ -7,3 +7,8 @@ django-phonenumber-field
 phonenumbers
 Pillow
 django-jazzmin
+celery
+django-celery-beat
+django-celery-results
+sqlalchemy
+psycopg2

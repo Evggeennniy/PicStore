@@ -48,7 +48,7 @@ class TakeBidSerializer(serializers.ModelSerializer):
 
         current_price = bid_lot.get_current_price()
 
-        min_step = int(current_price * 0.02)
+        min_step = int(current_price * 0.2)
 
         if data["amount"] <= current_price + min_step:
             raise ValidationError(
