@@ -86,30 +86,30 @@ class BidLot(Lot):
 class Bid(models.Model):
     value = models.IntegerField()
     lot = models.ForeignKey(BidLot, on_delete=models.CASCADE, related_name="bids")
-    customer_user = models.ForeignKey(
+    bidder = models.ForeignKey(
         CustomerUser, on_delete=models.CASCADE, related_name="bids"
     )
 
     def __str__(self):
-        return f"Bid on {self.lot.name} by {self.customer_user.username} — {self.value} USD"
+        return f"Bid on {self.lot.name} by {self.bidder.username} — {self.value} USD"
 
     def get_customer_name(self):
-        return self.customer_user.username
+        return self.bidder.username
 
 
 class RequestOrder(models.Model):
-    customer_user = models.ForeignKey(
+    bidder = models.ForeignKey(
         CustomerUser, on_delete=models.CASCADE, related_name="requests"
     )
     requested_at = models.DateTimeField(auto_now_add=True)
     lot = models.ForeignKey(Lot, on_delete=models.CASCADE, related_name="orders")
 
     def __str__(self):
-        return f"RequestOrder  {self.lot.name}) by {self.customer_user.username}"
+        return f"RequestOrder  {self.lot.name}) by {self.bidder.username}"
 
 
 class Question(models.Model):
-    customer_user = models.ForeignKey(
+    bidder = models.ForeignKey(
         CustomerUser, on_delete=models.CASCADE, related_name="questions"
     )
     lot = models.ForeignKey(Lot, on_delete=models.CASCADE, related_name="questions")
@@ -117,7 +117,7 @@ class Question(models.Model):
     asked_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"BaseQuestion  {self.lot.name}) by {self.customer_user.username}"
+        return f"BaseQuestion  {self.lot.name}) by {self.bidder.username}"
 
 
 class PropertyName(models.Model):

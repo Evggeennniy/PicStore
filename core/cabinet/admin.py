@@ -76,7 +76,7 @@ class FixedLotAdmin(admin.ModelAdmin):
 class BidInline(admin.TabularInline):
     model = Bid
     extra = 1  # Кількість порожніх рядків для додавання нових ставок
-    fields = ("customer_user", "value")
+    fields = ("bidder", "value")
 
 
 # BidLot Model Configuration
@@ -102,14 +102,14 @@ class PropertyNameAdmin(admin.ModelAdmin):
 
 @admin.register(RequestOrder)
 class RequestOrderAdmin(admin.ModelAdmin):
-    list_display = ("lot", "customer_user", "requested_at")
-    search_fields = ("lot__name", "customer_user__username")
+    list_display = ("lot", "bidder", "requested_at")
+    search_fields = ("lot__name", "bidder__username")
     list_filter = ("requested_at",)
 
 
 # Question Model Configuration
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ("lot", "customer_user", "asked_at")
-    search_fields = ("lot__name", "customer_user__username")
+    list_display = ("lot", "bidder", "asked_at")
+    search_fields = ("lot__name", "bidder__username")
     list_filter = ("asked_at",)
