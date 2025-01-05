@@ -75,6 +75,9 @@ class Bid(models.Model):
     def __str__(self):
         return f"Bid on {self.lot.name} by {self.customer_user.username} — {self.value} USD"
 
+    def get_customer_name(self):
+        return self.customer_user.username
+
 
 class RequestOrder(models.Model):
     customer_user = models.ForeignKey(CustomerUser, on_delete=models.CASCADE, related_name='%(class)s_requests')
