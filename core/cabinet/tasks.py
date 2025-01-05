@@ -12,6 +12,15 @@ def check_auction_end_and_notify():
     )
 
     for lot in expired_lots:
-        send_telegram_message(lot.get_telegram_text_end(is_raise_error=True))
+        bid = lot.get_winner_bid()
+        if bid:
+            send_telegram_message(
+                lot.get_telegram_text_end_for_winner(bid), is_raise_error=True
+            )
+            lot.create_oreder(bid.bidder)
+        else:
+            send_telegram_message(
+                lot.get_telegram_text_end_not_winner(), is_raise_error=True
+            )
         lot.notified = True
         lot.save()

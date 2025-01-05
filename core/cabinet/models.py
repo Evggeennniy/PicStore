@@ -84,8 +84,23 @@ class BidLot(Lot):
             return highest_bid.amount
         return self.starting_price
 
-    def get_telegram_text_end(self):
-        return f"Аукціон закінчився! {self.name} — {self.get_current_price()} USD"
+    def get_winner_bid(self):
+        return self.bids.order_by("-amount").first()
+
+    def get_telegram_text_end_for_winner(self, highest_bid):
+        return (
+            f"✅Аукціон закінчився! №{self.id} {self.name}\n"
+            f"🏆Перемежець {highest_bid.bidder.username} — {self.bidder.amount} USD"
+        )
+
+    def get_telegram_text_end_not_winner(self, highest_bid):
+        return (
+            f"😭Аукціон закінчився! №{self.id} {self.name}\n" f"☃️Перемежець відсутній"
+        )
+
+    def create_oreder(self, user):
+        request_order = RequestOrder.objects.create(buyer_id=user.id, lot_id=self.id)
+        send_telegram_message(request_order.get_telegram_text(is_raise_error=True))
 
 
 class Bid(models.Model):
@@ -113,7 +128,10 @@ class RequestOrder(models.Model):
         return f"RequestOrder  {self.lot.name}) by {self.buyer.username}"
 
     def get_telegram_text(self):
-        return f"✅?RequestOrder  {self.lot.name}) by {self.buyer.username}"
+        return (
+            f"📝Замовлення №{self.id}/{self.lot.id} {self.lot.name}\n"
+            f"👤 {self.buyer.username}\n {self.buyer.email}\n {self.buyer.phone_number}\n{self.buyer.first_name} {self.buyer.last_name}"
+        )
 
 
 class Question(models.Model):
@@ -125,7 +143,7 @@ class Question(models.Model):
     asked_at = models.DateTimeField(auto_now_add=True)
 
     def get_telegram_text(self):
-        return f"№{self.id} ❓\n{self.lot.name}) \n{self.buyer.username}\n {self.buyer.email}\n {self.buyer.phone_number}\n{self.buyer.first_name} {self.buyer.last_name}"
+        return f"❓№{self.id}\{self.lot.id} \n{self.lot.name}) \n{self.buyer.username}\n {self.buyer.email}\n {self.buyer.phone_number}\n{self.buyer.first_name} {self.buyer.last_name}"
 
 
 class PropertyName(models.Model):
