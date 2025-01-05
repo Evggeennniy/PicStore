@@ -102,14 +102,14 @@ class PropertyNameAdmin(admin.ModelAdmin):
 
 @admin.register(RequestOrder)
 class RequestOrderAdmin(admin.ModelAdmin):
-    list_display = ("lot", "bidder", "requested_at")
-    search_fields = ("lot__name", "bidder__username")
+    list_display = ("lot", "buyer", "requested_at")
+    search_fields = ("lot__name", "buyer__username")
     list_filter = ("requested_at",)
 
 
 # Question Model Configuration
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ("lot", "bidder", "asked_at")
-    search_fields = ("lot__name", "bidder__username")
+    list_display = ("lot", "buyer", "asked_at")
+    search_fields = ("lot__name", "buyer__username")
     list_filter = ("asked_at",)

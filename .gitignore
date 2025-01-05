@@ -27,7 +27,7 @@ venv.bak/
 
 # pyenv
 .python-version
-
+.env
 # MacOS
 .DS_Store
 

@@ -99,26 +99,29 @@ class Bid(models.Model):
 
 
 class RequestOrder(models.Model):
-    bidder = models.ForeignKey(
+    buyer = models.ForeignKey(
         CustomerUser, on_delete=models.CASCADE, related_name="requests"
     )
     requested_at = models.DateTimeField(auto_now_add=True)
     lot = models.ForeignKey(Lot, on_delete=models.CASCADE, related_name="orders")
 
     def __str__(self):
-        return f"RequestOrder  {self.lot.name}) by {self.bidder.username}"
+        return f"RequestOrder  {self.lot.name}) by {self.buyer.username}"
+
+    def get_telegram_text(self):
+        return f"✅?RequestOrder  {self.lot.name}) by {self.buyer.username}"
 
 
 class Question(models.Model):
-    bidder = models.ForeignKey(
+    buyer = models.ForeignKey(
         CustomerUser, on_delete=models.CASCADE, related_name="questions"
     )
     lot = models.ForeignKey(Lot, on_delete=models.CASCADE, related_name="questions")
-    question_text = models.TextField()
+    question_text = models.TextField(blank=True, null=True)
     asked_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return f"BaseQuestion  {self.lot.name}) by {self.bidder.username}"
+    def get_telegram_text(self):
+        return f"❓Question  {self.lot.name}) by {self.buyer.username}"
 
 
 class PropertyName(models.Model):

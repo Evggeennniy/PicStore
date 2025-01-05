@@ -3,13 +3,15 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
-from .models import Artist, FixedLot, BidLot
+from .models import Artist, FixedLot, BidLot, RequestOrder, Question
 from .serializers import (
     ArtistSerializer,
     FixedLotSerializer,
     BidLotSerializer,
     TakeBidSerializer,
+    FixedLot,
 )
+from .utils import send_telegram_message
 
 
 # Create your views here.
@@ -54,3 +56,29 @@ def place_bid(request, pk):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(["POST"])
+@permission_classes([IsAuthenticated])
+def buy(request, pk):
+    try:
+        bid_lot = FixedLot.objects.get(pk=pk)
+    except BidLot.DoesNotExist:
+        raise ValidationError("Bid lot does not exist.")
+    try:
+        request_order = RequestOrder.objects.create(buyer_id=request.user.id, lot_id=pk)
+        send_telegram_message(request_order.get_telegram_text())
+        return Response("Thank you for the order", status=status.HTTP_201_CREATED)
+    except:
+        return Response("Oops, some error", status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(["POST"])
+@permission_classes([IsAuthenticated])
+def question(request, pk):
+    try:
+        question = Question.objects.create(buyer_id=request.user.id, lot_id=pk)
+        send_telegram_message(question.get_telegram_text())
+        return Response("Thank you for the question", status=status.HTTP_201_CREATED)
+    except:
+        return Response("Oops, some error", status=status.HTTP_400_BAD_REQUEST)
