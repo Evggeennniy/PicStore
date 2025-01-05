@@ -104,7 +104,6 @@ class FixedLotSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "name",
-            "price",
             "description",
             "is_recommend",
             "price",
@@ -130,12 +129,12 @@ class BidLotSerializer(serializers.ModelSerializer):
             "price",
             "description",
             "is_recommend",
-            "price",
             "size",
             "bids",
             "photo",
             "photos",
             "properties",
+            "auction_end_time",
         ]
 
     def get_price(self, obj):
@@ -166,7 +165,6 @@ class FixedLotArtistSerializer(serializers.ModelSerializer):
             "price",
             "short_description",
             "is_recommend",
-            "price",
             "photo",
             "properties",
         ]
@@ -184,7 +182,6 @@ class BidLotArtistSerializer(serializers.ModelSerializer):
             "price",
             "short_description",
             "is_recommend",
-            "price",
             "photo",
             "properties",
         ]

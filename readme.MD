@@ -21,5 +21,6 @@ celery -A core beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseSc
 ```
 для хардкод запуску
 ```
-celery -A core beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
+celery -A core beat -l INFO
+
 ```
