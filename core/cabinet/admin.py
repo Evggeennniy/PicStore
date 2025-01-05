@@ -76,7 +76,7 @@ class FixedLotAdmin(admin.ModelAdmin):
 class BidInline(admin.TabularInline):
     model = Bid
     extra = 1  # Кількість порожніх рядків для додавання нових ставок
-    fields = ("bidder", "value")
+    fields = ("bidder", "amount")
 
 
 # BidLot Model Configuration

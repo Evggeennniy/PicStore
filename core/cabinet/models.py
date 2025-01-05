@@ -78,21 +78,21 @@ class BidLot(Lot):
         return f"Bid Lot: {self.name} — Starting Price: {self.starting_price} USD"
 
     def get_current_price(self):
-        highest_bid = self.bids.order_by("-value").first()
+        highest_bid = self.bids.order_by("-amount").first()
         if highest_bid:
-            return highest_bid.value
+            return highest_bid.amount
         return self.starting_price
 
 
 class Bid(models.Model):
-    value = models.IntegerField()
+    amount = models.IntegerField()
     lot = models.ForeignKey(BidLot, on_delete=models.CASCADE, related_name="bids")
     bidder = models.ForeignKey(
         CustomerUser, on_delete=models.CASCADE, related_name="bids"
     )
 
     def __str__(self):
-        return f"Bid on {self.lot.name} by {self.bidder.username} — {self.value} USD"
+        return f"Bid on {self.lot.name} by {self.bidder.username} — {self.amount} USD"
 
     def get_bidder_name(self):
         return self.bidder.username

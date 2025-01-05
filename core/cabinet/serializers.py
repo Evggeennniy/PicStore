@@ -1,7 +1,10 @@
 # filepath: /c:/project/PicStore/core/cabinet/serializers.py
+from django.utils import timezone
 from rest_framework import serializers
-from authentication.models import CustomerUser
+from rest_framework.exceptions import ValidationError
+
 from .models import Size, Bid, Artist, Agreement, FixedLot, BidLot, Property, LotPhoto
+
 
 """
 
@@ -19,6 +22,40 @@ class PropertiesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Property
         fields = ["name", "value"]
+
+
+"""
+
+Serializer for the POST request.
+
+"""
+
+
+class TakeBidSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Bid
+        fields = ["amount", "bidder", "lot"]
+
+    def validate(self, data):
+        try:
+            bid_lot = BidLot.objects.get(pk=data["lot"])
+        except BidLot.DoesNotExist:
+            raise ValidationError("Bid lot does not exist.")
+
+        if bid_lot.auction_end_time < timezone.now():
+            raise ValidationError("Auction has ended.")
+
+        current_price = bid_lot.get_current_price()
+
+        min_step = int(current_price * 0.02)
+
+        if data["amount"] <= current_price + min_step:
+            raise ValidationError(
+                f"Bid must be higher than {current_price + min_step}."
+            )
+
+        return data
 
 
 """
@@ -45,7 +82,7 @@ class BidSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Bid
-        fields = ["value", "bidder"]
+        fields = ["amount", "bidder"]
 
     def get_bidder(self, obj):
         return obj.get_bidder_name()
