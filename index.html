@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <script src="./js/default.js" defer></script>
+
+    <title>PicStore - Profile</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__wrapper container">
+        <div class="header__nav-btn">
+          <div class="stick"></div>
+          <div class="stick"></div>
+          <div class="stick"></div>
+        </div>
+        <h2 class="header__logo"><span class="font--fat">Pic</span>Store</h2>
+        <div class="search">
+          <input
+            class="search__input"
+            type="text"
+            placeholder="Швидкий пошук"
+          />
+          <svg
+            class="search__icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M14.9536 14.9458L21 21M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+              stroke="#000000"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <nav class="header__nav">
+          <ul class="header__list">
+            <li class="header__list-item">
+              <a href="#" class="header__list-link">Профіль</a>
+            </li>
+            <li class="header__list-item">
+              <a href="#" class="header__list-link">Тех. підтримка</a>
+            </li>
+          </ul>
+          <ul class="header__list">
+            <li class="header__list-item">
+              <a href="#" class="header__list-link">Реєстрація</a>
+            </li>
+            <li class="header__list-item">
+              <a href="#" class="header__list-link header__list-link--primary"
+                >Увійти</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="main">
+      <section class="author">
+        <div class="author__wrapper container">
+          <div class="author__intro">
+            <div class="author__intro-left">
+              <div class="author__background"></div>
+              <div class="author__about">
+                <div class="author__about-top">
+                  <div class="author__img-wrap">
+                    <img
+                      src="./images/author-img.png"
+                      alt="author-image"
+                      class="author__img"
+                    />
+                  </div>
+                  <ul class="author__contact-list">
+                    <li class="author__contact-link">
+                      <a href="#" class="author__contact-wrap">
+                        <img
+                          src="./images/tg.png"
+                          alt="social-media"
+                          class="author__contact-img"
+                        />
+                      </a>
+                    </li>
+                    <li class="author__contact-link">
+                      <a href="#" class="author__contact-wrap">
+                        <img
+                          src="./images/inst.png"
+                          alt="social-media"
+                          class="author__contact-img"
+                        />
+                      </a>
+                    </li>
+                    <li class="author__contact-link">
+                      <a href="#" class="author__contact-wrap">
+                        <img
+                          src="./images/tt.png"
+                          alt="social-media"
+                          class="author__contact-img"
+                        />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="author__about-bottom">
+                  <h4 class="author__fullname">Опалинський Роман</h4>
+                  <div class="author__props">
+                    <div class="author__exp author__prop">
+                      <img
+                        src="./images/exp-icon.svg"
+                        class="author__exp-icon"
+                        alt="experience-icon"
+                      />
+                      <h5 class="author__exp-text">5 років досвіду</h5>
+                    </div>
+                    <div class="author__place author__prop">
+                      <img
+                        src="./images/place-icon.svg"
+                        class="author__place-icon"
+                        alt="place-icon"
+                      />
+                      <h5 class="author__place-text">Україна, Одеса</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="author__intro-right">
+              <div class="author__bio">
+                <h4 class="author__title">Про себе</h4>
+                <p class="author__text">
+                  Я український художник, який знаходить натхнення в природі,
+                  культурі та людських емоціях. Моя творчість — це поєднання
+                  традиційного і сучасного.
+                </p>
+              </div>
+              <div class="author__stats">
+                <div class="author__stats-item">
+                  <img
+                    src="./images/bargain-icon.svg"
+                    alt="stats-icon"
+                    class="author__stats-icon"
+                  />
+                  <h5 class="author__stats-title">Закритих угод: 5</h5>
+                </div>
+                <div class="author__stats-item">
+                  <img
+                    src="./images/bargain-icon.svg"
+                    alt="stats-icon"
+                    class="author__stats-icon"
+                  />
+                  <h5 class="author__stats-title">Відкритих угод: 9</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="catalog">
+        <div class="catalog__wrapper container">
+          <div class="catalog__content">
+            <div class="catalog__header">
+              <h4 class="catalog__title">Картини автора</h4>
+              <div class="line"></div>
+              <div class="catalog__nav">
+                <button class="catalog__nav-btn">
+                  <img src="./images/filter-icon.svg" alt="filter-icon" />
+                </button>
+                <button class="catalog__nav-btn catalog__nav-btn--primary">
+                  <img src="./images/sort-icon.svg" alt="sort-icon" />
+                </button>
+              </div>
+            </div>
+            <ul class="catalog__list">
+              <li class="catalog__item">
+                <a href="#" class="catalog__item-link">
+                  <div class="catalog__img-wrap">
+                    <img
+                      class="catalog__item-img"
+                      src="./images/paining-1.png"
+                      alt="painting"
+                    />
+                  </div>
+                  <div class="catalog__item-info">
+                    <h5 class="catalog__item-title">
+                      Тиша гармонії: лінії що об'єднують
+                    </h5>
+                    <h5 class="catalog__item-price">2500 $</h5>
+                  </div>
+                </a>
+              </li>
+              <li class="catalog__item">
+                <a href="#" class="catalog__item-link">
+                  <div class="catalog__img-wrap">
+                    <img
+                      class="catalog__item-img"
+                      src="./images/paining-2.png"
+                      alt="painting"
+                    />
+                  </div>
+                  <div class="catalog__item-info">
+                    <h5 class="catalog__item-title">
+                      Тиша гармонії: лінії що об'єднують
+                    </h5>
+                    <h5 class="catalog__item-price">2500 $</h5>
+                  </div>
+                </a>
+              </li>
+              <li class="catalog__item">
+                <a href="#" class="catalog__item-link">
+                  <div class="catalog__img-wrap">
+                    <img
+                      class="catalog__item-img"
+                      src="./images/paining-3.png"
+                      alt="painting"
+                    />
+                  </div>
+                  <div class="catalog__item-info">
+                    <h5 class="catalog__item-title">
+                      Тиша гармонії: лінії що об'єднують
+                    </h5>
+                    <h5 class="catalog__item-price">2500 $</h5>
+                  </div>
+                </a>
+              </li>
+              <li class="catalog__item">
+                <a href="#" class="catalog__item-link">
+                  <div class="catalog__img-wrap">
+                    <img
+                      class="catalog__item-img"
+                      src="./images/paining-4.png"
+                      alt="painting"
+                    />
+                  </div>
+                  <div class="catalog__item-info">
+                    <h5 class="catalog__item-title">
+                      Тиша гармонії: лінії що об'єднують
+                    </h5>
+                    <h5 class="catalog__item-price">2500 $</h5>
+                  </div>
+                </a>
+              </li>
+              <li class="catalog__item">
+                <a href="#" class="catalog__item-link">
+                  <div class="catalog__img-wrap">
+                    <img
+                      class="catalog__item-img"
+                      src="./images/paining-1.png"
+                      alt="painting"
+                    />
+                  </div>
+                  <div class="catalog__item-info">
+                    <h5 class="catalog__item-title">
+                      Тиша гармонії: лінії що об'єднують
+                    </h5>
+                    <h5 class="catalog__item-price">2500 $</h5>
+                  </div>
+                </a>
+              </li>
+              <li class="catalog__item">
+                <a href="#" class="catalog__item-link">
+                  <div class="catalog__img-wrap">
+                    <img
+                      class="catalog__item-img"
+                      src="./images/paining-2.png"
+                      alt="painting"
+                    />
+                  </div>
+                  <div class="catalog__item-info">
+                    <h5 class="catalog__item-title">
+                      Тиша гармонії: лінії що об'єднують
+                    </h5>
+                    <h5 class="catalog__item-price">2500 $</h5>
+                  </div>
+                </a>
+              </li>
+              <li class="catalog__item">
+                <a href="#" class="catalog__item-link">
+                  <div class="catalog__img-wrap">
+                    <img
+                      class="catalog__item-img"
+                      src="./images/paining-3.png"
+                      alt="painting"
+                    />
+                  </div>
+                  <div class="catalog__item-info">
+                    <h5 class="catalog__item-title">
+                      Тиша гармонії: лінії що об'єднують
+                    </h5>
+                    <h5 class="catalog__item-price">2500 $</h5>
+                  </div>
+                </a>
+              </li>
+              <li class="catalog__item">
+                <a href="#" class="catalog__item-link">
+                  <div class="catalog__img-wrap">
+                    <img
+                      class="catalog__item-img"
+                      src="./images/paining-4.png"
+                      alt="painting"
+                    />
+                  </div>
+                  <div class="catalog__item-info">
+                    <h5 class="catalog__item-title">
+                      Тиша гармонії: лінії що об'єднують
+                    </h5>
+                    <h5 class="catalog__item-price">2500 $</h5>
+                  </div>
+                </a>
+              </li>
+              <li class="catalog__item">
+                <a href="#" class="catalog__item-link">
+                  <div class="catalog__img-wrap">
+                    <img
+                      class="catalog__item-img"
+                      src="./images/paining-1.png"
+                      alt="painting"
+                    />
+                  </div>
+                  <div class="catalog__item-info">
+                    <h5 class="catalog__item-title">
+                      Тиша гармонії: лінії що об'єднують
+                    </h5>
+                    <h5 class="catalog__item-price">2500 $</h5>
+                  </div>
+                </a>
+              </li>
+              <li class="catalog__item">
+                <a href="#" class="catalog__item-link">
+                  <div class="catalog__img-wrap">
+                    <img
+                      class="catalog__item-img"
+                      src="./images/paining-2.png"
+                      alt="painting"
+                    />
+                  </div>
+                  <div class="catalog__item-info">
+                    <h5 class="catalog__item-title">
+                      Тиша гармонії: лінії що об'єднують
+                    </h5>
+                    <h5 class="catalog__item-price">2500 $</h5>
+                  </div>
+                </a>
+              </li>
+              <li class="catalog__item">
+                <a href="#" class="catalog__item-link">
+                  <div class="catalog__img-wrap">
+                    <img
+                      class="catalog__item-img"
+                      src="./images/paining-3.png"
+                      alt="painting"
+                    />
+                  </div>
+                  <div class="catalog__item-info">
+                    <h5 class="catalog__item-title">
+                      Тиша гармонії: лінії що об'єднують
+                    </h5>
+                    <h5 class="catalog__item-price">2500 $</h5>
+                  </div>
+                </a>
+              </li>
+              <li class="catalog__item">
+                <a href="#" class="catalog__item-link">
+                  <div class="catalog__img-wrap">
+                    <img
+                      class="catalog__item-img"
+                      src="./images/paining-4.png"
+                      alt="painting"
+                    />
+                  </div>
+                  <div class="catalog__item-info">
+                    <h5 class="catalog__item-title">
+                      Тиша гармонії: лінії що об'єднують
+                    </h5>
+                    <h5 class="catalog__item-price">2500 $</h5>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__wrapper container">
+        <h2 class="footer__logo"><span class="font--fat">Pic</span>Store</h2>
+        <div class="footer__contacts">
+          <h5 class="footer__contact">
+            <a class="footer__link" href="#">Telegram</a>
+          </h5>
+          <h5 class="footer__contact">
+            <a class="footer__link" href="#">Viber</a>
+          </h5>
+          <h5 class="footer__contact">
+            <a class="footer__link" href="#">Instagram</a>
+          </h5>
+        </div>
+        <div class="line"></div>
+        <p class="footer__end-text">©PicStore всі права захищені</p>
+      </div>
+    </footer>
+  </body>
+</html>
