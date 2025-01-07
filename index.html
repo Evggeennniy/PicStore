@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/reset.css" />
-    <link rel="stylesheet" href="./styles/style.css?v=1" />
+    <link rel="stylesheet" href="./styles/style.css?v=2" />
     <script src="./js/default.js" defer></script>
     <title>PicStore - Profile</title>
   </head>
@@ -26,7 +26,7 @@
           />
           <svg
             id="search-btn"
-            class="search__icon svg--small"
+            class="search__icon svg svg--small"
             xmlns="http://www.w3.org/2000/svg"
             width="800px"
             height="800px"
@@ -120,7 +120,7 @@
                   <div class="author__props">
                     <div class="author__exp author__prop">
                       <svg
-                        class="svg--small"
+                        class="svg svg--small"
                         xmlns="http://www.w3.org/2000/svg"
                         width="800px"
                         height="800px"
@@ -157,7 +157,7 @@
                     </div>
                     <div class="author__place author__prop">
                       <svg
-                        class="svg--small"
+                        class="svg svg--small"
                         xmlns="http://www.w3.org/2000/svg"
                         width="800px"
                         height="800px"
@@ -204,7 +204,7 @@
               <div class="author__stats">
                 <div class="author__stats-item">
                   <svg
-                    class="svg--small"
+                    class="svg svg--small"
                     xmlns="http://www.w3.org/2000/svg"
                     width="800px"
                     height="800px"
@@ -236,7 +236,7 @@
                 </div>
                 <div class="author__stats-item">
                   <svg
-                    class="svg--small"
+                    class="svg svg--small"
                     xmlns="http://www.w3.org/2000/svg"
                     width="800px"
                     height="800px"
@@ -284,9 +284,9 @@
               <h4 class="catalog__title">Картини автора</h4>
               <div class="line"></div>
               <div class="catalog__nav">
-                <button class="catalog__nav-btn">
+                <button id="filter-btn" class="catalog__nav-btn">
                   <svg
-                    class="svg--small"
+                    class="svg svg--small"
                     xmlns="http://www.w3.org/2000/svg"
                     width="800px"
                     height="800px"
@@ -306,9 +306,12 @@
                     />
                   </svg>
                 </button>
-                <button class="catalog__nav-btn catalog__nav-btn--primary">
+                <button
+                  id="sort-btn"
+                  class="catalog__nav-btn catalog__nav-btn--primary"
+                >
                   <svg
-                    class="svg--small"
+                    class="svg svg--small"
                     xmlns="http://www.w3.org/2000/svg"
                     width="800px"
                     height="800px"
@@ -335,6 +338,12 @@
                       stroke-linecap="round"
                     />
                   </svg>
+                  <!-- <ul class="catalog__menu">
+                    <li class="catalog__menu-item">По ціні</li>
+                    <li class="catalog__menu-item">По популярності</li>
+                    <li class="catalog__menu-menu-item">По даті</li>
+                  </ul>
+                  TODO: Add dropdown menu for sorting -->
                 </button>
               </div>
             </div>
