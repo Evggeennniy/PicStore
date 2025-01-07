@@ -51,15 +51,24 @@ body {
 .container {
   max-width: 1500px;
   margin: 0 auto;
-
-  @include mobile {
-    padding: 0 20px;
-  }
+  padding: 0 20px;
 }
 
 .font {
   &--fat {
     font-weight: 600;
+  }
+}
+
+.svg {
+  &--small {
+    height: 20px;
+    width: 20px;
+  }
+
+  &--medium {
+    height: 30px;
+    width: 30px;
   }
 }
 
@@ -164,11 +173,6 @@ body {
     }
   }
 
-  .search__icon {
-    height: 20px;
-    width: 20px;
-  }
-
   @include mobile {
     padding: 10px;
 
@@ -229,7 +233,7 @@ body {
     height: 144px;
     border-radius: 10px;
 
-    background-image: url("../images/author-bg.png");
+    background-image: url("../images/author-background.png");
     background-repeat: no-repeat;
     background-size: cover;
   }
