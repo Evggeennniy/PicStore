@@ -1,4 +1,4 @@
-# filepath: /c:/project/PicStore/core/cabinet/serializers.py
+# filepath: /c:/project/PicStore/settings/cabinet/serializers.py
 from django.utils import timezone
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
