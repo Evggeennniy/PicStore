@@ -2,36 +2,48 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 from authentication.models import CustomerUser
-import rest_framework
+
+from .utils import send_telegram_message
 
 
 class Agreement(models.Model):
-    open = models.IntegerField(default=0)
-    close = models.IntegerField(default=0)
+
 
     def __str__(self):
         return f"Agreement: Open - {self.open}, Close - {self.close}"
 
 
 class Artist(AbstractUser):
-    banner_image = models.ImageField(upload_to="banners/")
-    avatar_image = models.ImageField(upload_to="avatars/")
+    banner = models.ImageField(upload_to="banners/")
+    avatar = models.ImageField(upload_to="avatars/")
     bio = models.TextField(max_length=1024)
     country = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
     telegram = models.URLField(max_length=200, blank=True, null=True)
     instagram = models.URLField(max_length=200, blank=True, null=True)
     tik_tok = models.URLField(max_length=200, blank=True, null=True)
-    agreement = models.OneToOneField(Agreement, on_delete=models.CASCADE)
-    experience = models.IntegerField(default=1)
+    experience = models.PositiveIntegerField(default=1)
+    agreement_open = models.PositiveIntegerField(default=0)
+    agreement_close = models.PositiveIntegerField(default=0)
+    view_count = models.PositiveIntegerField(
+        verbose_name="Кількість переглядів", default=0
+    )
+
+    def increment_view_count(self):
+        """Збільшити кількість переглядів на 1."""
+        self.view_count += 1
+        self.save(update_fields=["view_count"])
 
     def __str__(self):
         return f"Artist: {self.username}"
 
 
 class Size(models.Model):
-    width = models.IntegerField(default=15)
-    height = models.IntegerField(default=15)
+    author = models.ForeignKey(
+        Artist, on_delete=models.CASCADE, related_name="sizes", blank=True, null=True
+    )
+    width = models.PositiveIntegerField(default=15)
+    height = models.PositiveIntegerField(default=15)
 
     def __str__(self):
         return f"Size {self.width}x{self.height}"
@@ -44,6 +56,15 @@ class Lot(models.Model):
     is_recommend = models.BooleanField(default=False)
     size = models.ForeignKey(Size, on_delete=models.CASCADE, related_name="lot")
     photo = models.ImageField(upload_to="lot/main/")
+    price = models.PositiveIntegerField(default=1000)
+    view_count = models.PositiveIntegerField(
+        verbose_name="Кількість переглядів", default=0
+    )
+
+    def increment_view_count(self):
+        """Збільшити кількість переглядів на 1."""
+        self.view_count += 1
+        self.save(update_fields=["view_count"])
 
     def __str__(self):
         return self.name
@@ -61,7 +82,6 @@ class FixedLot(Lot):
     author = models.ForeignKey(
         Artist, on_delete=models.CASCADE, related_name="fixed_lots"
     )
-    price = models.IntegerField(default=1000)
 
     def __str__(self):
         return f"Fixed Lot: {self.name} — {self.price} USD"
@@ -71,18 +91,12 @@ class BidLot(Lot):
     author = models.ForeignKey(
         Artist, on_delete=models.CASCADE, related_name="bid_lots"
     )
-    starting_price = models.IntegerField(default=1000)
+    starting_price = models.PositiveIntegerField(default=1000)
     auction_end_time = models.DateTimeField()
     notified = models.BooleanField(default=False)
 
     def __str__(self):
         return f"Bid Lot: {self.name} — Starting Price: {self.starting_price} USD"
-
-    def get_current_price(self):
-        highest_bid = self.bids.order_by("-amount").first()
-        if highest_bid:
-            return highest_bid.amount
-        return self.starting_price
 
     def get_winner_bid(self):
         return self.bids.order_by("-amount").first()
@@ -104,7 +118,7 @@ class BidLot(Lot):
 
 
 class Bid(models.Model):
-    amount = models.IntegerField()
+    amount = models.PositiveIntegerField()
     lot = models.ForeignKey(BidLot, on_delete=models.CASCADE, related_name="bids")
     bidder = models.ForeignKey(
         CustomerUser, on_delete=models.CASCADE, related_name="bids"

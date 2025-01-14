@@ -16,14 +16,6 @@ from .models import (
     LotPhoto,
 )
 
-
-# Agreement Model Configuration
-@admin.register(Agreement)
-class AgreementAdmin(admin.ModelAdmin):
-    list_display = ("id", "open", "close")
-    search_fields = ("open", "close")
-
-
 class LotPhotoInline(admin.TabularInline):  # або admin.StackedInline
     model = LotPhoto
     extra = 1
@@ -31,11 +23,13 @@ class LotPhotoInline(admin.TabularInline):  # або admin.StackedInline
 
 class FixedLotInline(admin.TabularInline):
     model = FixedLot
+    readonly_fields = ("view_count",)
     extra = 1
 
 
 class BidLotInline(admin.TabularInline):
     model = BidLot
+    readonly_fields = ("price", "view_count")
     extra = 1
 
 
@@ -61,7 +55,7 @@ class SizeAdmin(admin.ModelAdmin):
 
 class PropertyInline(admin.TabularInline):
     model = Property
-    extra = 1  # Додаємо порожній рядок для введення
+    extra = 0
     fields = ("name", "value")  # Поля, які будуть відображені
 
 
@@ -71,26 +65,34 @@ class FixedLotAdmin(admin.ModelAdmin):
     list_display = ("name", "price")
     search_fields = ("name", "price")
     inlines = [PropertyInline, LotPhotoInline]
+    readonly_fields = ("view_count",)
 
 
 class BidInline(admin.TabularInline):
     model = Bid
-    extra = 1  # Кількість порожніх рядків для додавання нових ставок
+    extra = 0   # Кількість порожніх рядків для додавання нових ставок
     fields = ("bidder", "amount")
+    readonly_fields = ("bidder", "amount")
+
+    can_delete = False
+
+    # Заборонити додавання
+    def has_add_permission(self, request, obj=None):
+        return False
+
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        return queryset.order_by('-amount')
 
 
 # BidLot Model Configuration
 @admin.register(BidLot)
 class BidLotAdmin(admin.ModelAdmin):
-    list_display = ("name", "starting_price", "auction_end_time")
-    search_fields = ("name", "starting_price")
+    list_display = ("name", "price", "starting_price", "auction_end_time")
+    search_fields = ("name", "price", "starting_price")
     list_filter = ("auction_end_time",)
+    readonly_fields = ("price", "view_count")
     inlines = [PropertyInline, BidInline, LotPhotoInline]
-
-    def highest_bid(self, obj):
-        # Знаходимо найвищу ставку для цього лоту
-        highest_bid = obj.bids.order_by("-value").first()
-        return highest_bid.value if highest_bid else "No bids yet"
 
 
 # PropertyName Model Configuration

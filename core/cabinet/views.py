@@ -19,9 +19,13 @@ from .utils import send_telegram_message
 @api_view(["GET"])
 def artist_detail(request, username):
     artist = get_object_or_404(
-        Artist.objects.prefetch_related("agreement", "fixed_lots", "bid_lots"),
+        Artist.objects.prefetch_related("fixed_lots", "bid_lots"),
         username=username,
     )
+    try:
+        artist.increment_view_count()
+    except AttributeError:
+        pass
     serializer = ArtistSerializer(artist)
     return Response(serializer.data)
 
@@ -31,6 +35,10 @@ def fixedlot_detail(request, pk):
     fixed_lot = get_object_or_404(
         FixedLot.objects.prefetch_related("size", "photos", "properties"), pk=pk
     )
+    try:
+        fixed_lot.increment_view_count()
+    except AttributeError:
+        pass
     serializer = FixedLotSerializer(fixed_lot)
     return Response(serializer.data)
 
@@ -40,6 +48,10 @@ def bidlot_detail(request, pk):
     bid_lot = get_object_or_404(
         BidLot.objects.prefetch_related("bids", "size", "photos", "properties"), pk=pk
     )
+    try:
+        bid_lot.increment_view_count()
+    except AttributeError:
+        pass
     serializer = BidLotSerializer(bid_lot)
     return Response(serializer.data)
 

@@ -46,13 +46,11 @@ class TakeBidSerializer(serializers.ModelSerializer):
         if bid_lot.auction_end_time < timezone.now():
             raise ValidationError("Auction has ended.")
 
-        current_price = bid_lot.get_current_price()
+        min_step = int(bid_lot.price * 0.2)
 
-        min_step = int(current_price * 0.2)
-
-        if data["amount"] <= current_price + min_step:
+        if data["amount"] <= bid_lot.price + min_step:
             raise ValidationError(
-                f"Bid must be higher than {current_price + min_step}."
+                f"Bid must be higher than {bid_lot.price + min_step}."
             )
 
         return data
@@ -71,7 +69,6 @@ class LotPhotoSerializer(serializers.ModelSerializer):
         fields = ["photo"]
 
     def to_representation(self, instance):
-        # Повертаємо лише назву файлу замість повного шляху
         representation = super().to_representation(instance)
         representation = instance.photo.name
         return representation
@@ -106,6 +103,7 @@ class FixedLotSerializer(serializers.ModelSerializer):
             "name",
             "description",
             "is_recommend",
+            "view_count",
             "price",
             "size",
             "photo",
@@ -116,7 +114,6 @@ class FixedLotSerializer(serializers.ModelSerializer):
 
 class BidLotSerializer(serializers.ModelSerializer):
     photos = LotPhotoSerializer(many=True, read_only=True)
-    price = serializers.SerializerMethodField()
     size = SizeSerializer()
     bids = BidSerializer(many=True)
     properties = PropertiesSerializer(many=True)
@@ -129,6 +126,7 @@ class BidLotSerializer(serializers.ModelSerializer):
             "price",
             "description",
             "is_recommend",
+            "view_count",
             "size",
             "bids",
             "photo",
@@ -137,8 +135,6 @@ class BidLotSerializer(serializers.ModelSerializer):
             "auction_end_time",
         ]
 
-    def get_price(self, obj):
-        return obj.get_current_price()
 
 
 """
@@ -147,15 +143,9 @@ Serializers for the Artist model and related models.
 
 """
 
-
-class AgreementSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Agreement
-        fields = ["open", "close"]
-
-
 class FixedLotArtistSerializer(serializers.ModelSerializer):
     properties = PropertiesSerializer(many=True)
+    size = SizeSerializer()
 
     class Meta:
         model = FixedLot
@@ -163,16 +153,18 @@ class FixedLotArtistSerializer(serializers.ModelSerializer):
             "id",
             "name",
             "price",
+            "size",
             "short_description",
             "is_recommend",
+            "view_count",
             "photo",
             "properties",
         ]
 
 
 class BidLotArtistSerializer(serializers.ModelSerializer):
-    price = serializers.SerializerMethodField()
     properties = PropertiesSerializer(many=True)
+    size = SizeSerializer()
 
     class Meta:
         model = BidLot
@@ -180,18 +172,17 @@ class BidLotArtistSerializer(serializers.ModelSerializer):
             "id",
             "name",
             "price",
+            "size",
             "short_description",
             "is_recommend",
+            "view_count",
             "photo",
             "properties",
         ]
 
-    def get_price(self, obj):
-        return obj.get_current_price()
 
 
 class ArtistSerializer(serializers.ModelSerializer):
-    agreement = AgreementSerializer()
     fixed_lots = FixedLotArtistSerializer(many=True)
     bid_lots = BidLotArtistSerializer(many=True)
 
@@ -201,8 +192,8 @@ class ArtistSerializer(serializers.ModelSerializer):
             "username",
             "first_name",
             "last_name",
-            "banner_image",
-            "avatar_image",
+            "banner",
+            "avatar",
             "bio",
             "country",
             "city",
@@ -210,7 +201,9 @@ class ArtistSerializer(serializers.ModelSerializer):
             "instagram",
             "tik_tok",
             "experience",
-            "agreement",
+            "agreement_open",
+            "agreement_close",
+            "view_count",
             "fixed_lots",
             "bid_lots",
         ]
