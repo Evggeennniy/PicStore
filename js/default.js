@@ -1,5 +1,5 @@
 function isMobile() {
-  return window.innerWidth < 576;
+  return window.innerWidth < 1100;
 }
 
 const searchBtn = document.getElementById("search-btn");
