@@ -8,3 +8,10 @@ searchBtn.addEventListener("click", () => {
   if (!isMobile()) return;
   searchInput.classList.toggle("active");
 });
+
+const mobileNavBtn = document.getElementById("mobile-nav-btn");
+const navMenu = document.getElementById("nav-menu");
+mobileNavBtn.addEventListener("click", () => {
+  mobileNavBtn.classList.toggle("active");
+  navMenu.classList.toggle("active");
+});
