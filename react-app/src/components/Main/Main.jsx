@@ -18,14 +18,14 @@ export const Profile = () => {
               <div
                 className="author__background"
                 style={{
-                  backgroundImage: `url("/images/author-background.png")`,
+                  backgroundImage: `url(${process.env.PUBLIC_URL}/images/author-background.png)`,
                 }}
               ></div>
               <div className="author__about">
                 <div className="author__about-top">
                   <div className="author__img-wrap">
                     <img
-                      src="./images/author-img.png"
+                      src={`${process.env.PUBLIC_URL}/images/author-img.png`}
                       alt="author-image"
                       className="author__img"
                     />
@@ -34,7 +34,7 @@ export const Profile = () => {
                     <li className="author__contact-link">
                       <NavLink to="/" className="author__contact-wrap">
                         <img
-                          src="./images/telegram-icon.png"
+                          src={`${process.env.PUBLIC_URL}/images/telegram-icon.png`}
                           alt="social-media"
                           className="author__contact-img"
                         />
@@ -43,7 +43,7 @@ export const Profile = () => {
                     <li className="author__contact-link">
                       <NavLink to="/" className="author__contact-wrap">
                         <img
-                          src="./images/tiktok-icon.png"
+                          src={`${process.env.PUBLIC_URL}/images/tiktok-icon.png`}
                           alt="social-media"
                           className="author__contact-img"
                         />
@@ -52,7 +52,7 @@ export const Profile = () => {
                     <li className="author__contact-link">
                       <NavLink to="/" className="author__contact-wrap">
                         <img
-                          src="./images/instagram-icon.png"
+                          src={`${process.env.PUBLIC_URL}/images/instagram-icon.png`}
                           alt="social-media"
                           className="author__contact-img"
                         />
@@ -128,7 +128,7 @@ export const Profile = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-1.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-1.png`}
                       alt="painting"
                     />
                   </div>
@@ -145,7 +145,7 @@ export const Profile = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-2.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-2.png`}
                       alt="painting"
                     />
                   </div>
@@ -162,7 +162,7 @@ export const Profile = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-3.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-3.png`}
                       alt="painting"
                     />
                   </div>
@@ -179,7 +179,7 @@ export const Profile = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-4.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-4.png`}
                       alt="painting"
                     />
                   </div>
@@ -196,7 +196,7 @@ export const Profile = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-1.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-1.png`}
                       alt="painting"
                     />
                   </div>
@@ -213,7 +213,7 @@ export const Profile = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-2.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-2.png`}
                       alt="painting"
                     />
                   </div>
@@ -230,7 +230,7 @@ export const Profile = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-3.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-3.png`}
                       alt="painting"
                     />
                   </div>
@@ -247,7 +247,7 @@ export const Profile = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-4.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-4.png`}
                       alt="painting"
                     />
                   </div>
@@ -264,7 +264,7 @@ export const Profile = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-1.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-1.png`}
                       alt="painting"
                     />
                   </div>
@@ -281,7 +281,7 @@ export const Profile = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-2.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-2.png`}
                       alt="painting"
                     />
                   </div>
@@ -298,7 +298,7 @@ export const Profile = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-3.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-3.png`}
                       alt="painting"
                     />
                   </div>
@@ -315,7 +315,7 @@ export const Profile = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-4.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-4.png`}
                       alt="painting"
                     />
                   </div>
@@ -343,7 +343,7 @@ export const Lot = () => {
           <div className="product__view">
             <div className="product__img-wrap product__img-wrap--big">
               <img
-                src="./images/general-lot-img.png"
+                src={`${process.env.PUBLIC_URL}/images/general-lot-img.png`}
                 alt="current-product-img"
                 className="product__img product__img--big"
                 id="current-product-img"
@@ -353,7 +353,7 @@ export const Lot = () => {
               <li className="product__list-item">
                 <div className="product__img-wrap product__img-wrap--small">
                   <img
-                    src="./images/paining-1.png"
+                    src={`${process.env.PUBLIC_URL}/images/paining-1.png`}
                     alt="product__img"
                     className="product__img product__img--sml"
                   />
@@ -362,7 +362,7 @@ export const Lot = () => {
               <li className="product__list-item">
                 <div className="product__img-wrap product__img-wrap--small">
                   <img
-                    src="./images/paining-2.png"
+                    src={`${process.env.PUBLIC_URL}/images/paining-2.png`}
                     alt="product__img"
                     className="product__img product__img--sml"
                   />
@@ -371,7 +371,7 @@ export const Lot = () => {
               <li className="product__list-item">
                 <div className="product__img-wrap product__img-wrap--small">
                   <img
-                    src="./images/paining-3.png"
+                    src={`${process.env.PUBLIC_URL}/images/paining-3.png`}
                     alt="product__img"
                     className="product__img product__img--sml"
                   />
@@ -434,7 +434,7 @@ export const Lot = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-1.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-1.png`}
                       alt="painting"
                     />
                   </div>
@@ -451,7 +451,7 @@ export const Lot = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-2.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-2.png`}
                       alt="painting"
                     />
                   </div>
@@ -468,7 +468,7 @@ export const Lot = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-3.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-3.png`}
                       alt="painting"
                     />
                   </div>
@@ -485,7 +485,7 @@ export const Lot = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-4.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-4.png`}
                       alt="painting"
                     />
                   </div>
@@ -502,7 +502,7 @@ export const Lot = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-1.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-1.png`}
                       alt="painting"
                     />
                   </div>
@@ -519,7 +519,7 @@ export const Lot = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-2.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-2.png`}
                       alt="painting"
                     />
                   </div>
@@ -536,7 +536,7 @@ export const Lot = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-3.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-3.png`}
                       alt="painting"
                     />
                   </div>
@@ -553,7 +553,7 @@ export const Lot = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-4.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-4.png`}
                       alt="painting"
                     />
                   </div>
@@ -570,7 +570,7 @@ export const Lot = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-1.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-1.png`}
                       alt="painting"
                     />
                   </div>
@@ -587,7 +587,7 @@ export const Lot = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-2.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-2.png`}
                       alt="painting"
                     />
                   </div>
@@ -604,7 +604,7 @@ export const Lot = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-3.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-3.png`}
                       alt="painting"
                     />
                   </div>
@@ -621,7 +621,7 @@ export const Lot = () => {
                   <div className="catalog__img-wrap">
                     <img
                       className="catalog__item-img"
-                      src="./images/paining-4.png"
+                      src={`${process.env.PUBLIC_URL}/images/paining-4.png`}
                       alt="painting"
                     />
                   </div>
