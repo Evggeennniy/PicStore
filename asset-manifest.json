@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.8162bf38.css",
-    "main.js": "/static/js/main.5869b570.js",
-    "static/js/488.6d5d2703.chunk.js": "/static/js/488.6d5d2703.chunk.js",
-    "static/media/basket.svg": "/static/media/basket.046642a6efc3997597e02f7f51355bbd.svg",
-    "static/media/experience.svg": "/static/media/experience.1c6f23c8f3fc150e2cccc4d2227d7aca.svg",
-    "static/media/opendeals.svg": "/static/media/opendeals.e8ca47a1506fd9d452771994f381dc32.svg",
-    "static/media/closeddeals.svg": "/static/media/closeddeals.09d7ba46b5d61aaeb546623c82ec0eb7.svg",
-    "static/media/filter.svg": "/static/media/filter.66f54d63e3afc9b90f8c6e8193016f07.svg",
-    "static/media/place.svg": "/static/media/place.06dd052bf412f730534bf9ee6b1b2d7e.svg",
-    "static/media/sort.svg": "/static/media/sort.aa3ec227604107e364c36b2832f1e2b5.svg",
-    "index.html": "/index.html",
-    "static/media/search.svg": "/static/media/search.e88e84f3b76cc8f8617469acec2df5e6.svg",
-    "main.8162bf38.css.map": "/static/css/main.8162bf38.css.map",
-    "main.5869b570.js.map": "/static/js/main.5869b570.js.map",
-    "488.6d5d2703.chunk.js.map": "/static/js/488.6d5d2703.chunk.js.map"
+    "main.css": "/PicStore/static/css/main.8162bf38.css",
+    "main.js": "/PicStore/static/js/main.7a32e4c8.js",
+    "static/js/488.6d5d2703.chunk.js": "/PicStore/static/js/488.6d5d2703.chunk.js",
+    "static/media/basket.svg": "/PicStore/static/media/basket.046642a6efc3997597e02f7f51355bbd.svg",
+    "static/media/experience.svg": "/PicStore/static/media/experience.1c6f23c8f3fc150e2cccc4d2227d7aca.svg",
+    "static/media/opendeals.svg": "/PicStore/static/media/opendeals.e8ca47a1506fd9d452771994f381dc32.svg",
+    "static/media/closeddeals.svg": "/PicStore/static/media/closeddeals.09d7ba46b5d61aaeb546623c82ec0eb7.svg",
+    "static/media/filter.svg": "/PicStore/static/media/filter.66f54d63e3afc9b90f8c6e8193016f07.svg",
+    "static/media/place.svg": "/PicStore/static/media/place.06dd052bf412f730534bf9ee6b1b2d7e.svg",
+    "index.html": "/PicStore/index.html",
+    "static/media/sort.svg": "/PicStore/static/media/sort.aa3ec227604107e364c36b2832f1e2b5.svg",
+    "static/media/search.svg": "/PicStore/static/media/search.e88e84f3b76cc8f8617469acec2df5e6.svg",
+    "main.8162bf38.css.map": "/PicStore/static/css/main.8162bf38.css.map",
+    "main.7a32e4c8.js.map": "/PicStore/static/js/main.7a32e4c8.js.map",
+    "488.6d5d2703.chunk.js.map": "/PicStore/static/js/488.6d5d2703.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8162bf38.css",
-    "static/js/main.5869b570.js"
+    "static/js/main.7a32e4c8.js"
   ]
 }
