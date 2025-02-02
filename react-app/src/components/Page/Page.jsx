@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { Header } from "../Header";
 import {
+  Index,
   Profile,
   Lot,
   News,
@@ -18,6 +19,7 @@ export const Page = () => {
       <Router>
         <Header />
         <Routes>
+          <Route path="/" element={<Index />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/news" element={<News />} />
           <Route path="/stats" element={<Stats />} />

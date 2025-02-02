@@ -1,4 +1,5 @@
 export {
+  Index,
   Profile,
   Lot,
   News,

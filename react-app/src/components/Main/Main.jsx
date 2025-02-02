@@ -1,14 +1,28 @@
 import { NavLink } from "react-router-dom";
 
+import { useScrollToTop } from "../../utils/request";
+
 import { ReactComponent as BasketIcon } from "../../assets/svg/basket.svg";
 import { ReactComponent as ExperienceIcon } from "../../assets/svg/experience.svg";
 import { ReactComponent as PlaceIcon } from "../../assets/svg/place.svg";
 import { ReactComponent as ClosedDealsIcon } from "../../assets/svg/closeddeals.svg";
 import { ReactComponent as OpenDealsIcon } from "../../assets/svg/opendeals.svg";
-import { ReactComponent as FilterIcon } from "../../assets/svg/filter.svg";
-import { ReactComponent as SortIcon } from "../../assets/svg/sort.svg";
+// import { ReactComponent as FilterIcon } from "../../assets/svg/filter.svg";
+// import { ReactComponent as SortIcon } from "../../assets/svg/sort.svg";
+
+export const Index = () => {
+  useScrollToTop();
+
+  return (
+    <main className="main">
+      <div className="container">Главная страница</div>
+    </main>
+  );
+};
 
 export const Profile = () => {
+  useScrollToTop();
+
   return (
     <main className="main">
       <section className="author">
@@ -104,7 +118,8 @@ export const Profile = () => {
             <div className="catalog__header">
               <h4 className="catalog__title">Картини автора</h4>
               <div className="line"></div>
-              <div className="catalog__nav">
+              {/* !!! TODO FILTER/SORT */}
+              {/* <div className="catalog__nav">
                 <button id="filter-btn" className="catalog__nav-btn">
                   <FilterIcon />
                 </button>
@@ -113,14 +128,8 @@ export const Profile = () => {
                   className="catalog__nav-btn catalog__nav-btn--primary"
                 >
                   <SortIcon />
-                  {/* <ul className="catalog__menu">
-                    <li className="catalog__menu-item">По ціні</li>
-                    <li className="catalog__menu-item">По популярності</li>
-                    <li className="catalog__menu-menu-item">По даті</li>
-                  </ul>
-                  TODO: Add dropdown menu for sorting */}
                 </button>
-              </div>
+              </div> */}
             </div>
             <ul className="catalog__list">
               <li className="catalog__item">
@@ -336,6 +345,8 @@ export const Profile = () => {
 };
 
 export const Lot = () => {
+  useScrollToTop();
+
   return (
     <main className="main">
       <section className="product">
@@ -642,6 +653,8 @@ export const Lot = () => {
 };
 
 export const News = () => {
+  useScrollToTop();
+
   return (
     <main className="main">
       <div className="container">Новини</div>
@@ -650,6 +663,8 @@ export const News = () => {
 };
 
 export const Stats = () => {
+  useScrollToTop();
+
   return (
     <main className="main">
       <div className="container">Аналитика</div>
@@ -658,6 +673,8 @@ export const Stats = () => {
 };
 
 export const Registration = () => {
+  useScrollToTop();
+
   return (
     <main className="main">
       <div className="container">Регистрацiя</div>
@@ -666,6 +683,8 @@ export const Registration = () => {
 };
 
 export const Login = () => {
+  useScrollToTop();
+
   return (
     <main className="main">
       <div className="container">Логiн</div>
@@ -674,6 +693,8 @@ export const Login = () => {
 };
 
 export const NotFound = () => {
+  useScrollToTop();
+
   return (
     <main className="main">
       <div className="container">Не знайдено</div>
