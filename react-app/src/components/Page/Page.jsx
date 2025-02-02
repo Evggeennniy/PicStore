@@ -16,7 +16,7 @@ import { Footer } from "../Footer";
 export const Page = () => {
   return (
     <div className="page">
-      <Router>
+      <Router basename="PicStore">
         <Header />
         <Routes>
           <Route path="/" element={<Index />} />
