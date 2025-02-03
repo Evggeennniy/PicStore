@@ -665,21 +665,21 @@ body {
   }
 }
 
-.catalog {
-  .catalog__content {
+.collection {
+  .collection__content {
     background-color: #ffffff;
     border-radius: 10px;
     padding: 30px;
   }
 
-  .catalog__header {
+  .collection__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
   }
 
-  .catalog__title {
+  .collection__title {
     font-weight: 500;
     margin-right: 20px;
   }
@@ -690,13 +690,13 @@ body {
     background-color: lightgray;
   }
 
-  .catalog__nav {
+  .collection__nav {
     display: flex;
     gap: 10px;
     margin-left: 20px;
   }
 
-  .catalog__nav-btn {
+  .collection__nav-btn {
     cursor: pointer;
     padding: 10px 20px;
     background-color: transparent;
@@ -719,7 +719,7 @@ body {
     z-index: 5;
   }
 
-  // .catalog__menu {
+  // .collection__menu {
   //   background-color: #ffffff;
   //   position: absolute;
   //   z-index: 4;
@@ -727,51 +727,51 @@ body {
   //   bottom: -10px;
   // } TODO: add dropdown menu for sorting
 
-  .catalog__list {
+  .collection__list {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
   }
 
-  .catalog__item {
+  .collection__item {
     flex: 1;
     min-width: 230px;
   }
 
-  .catalog__item-link {
+  .collection__item-link {
     display: block;
     text-decoration: none;
   }
 
-  .catalog__item-img {
+  .collection__item-img {
     height: 180px;
     box-shadow: 0px 2px 9px 0px black;
   }
 
-  .catalog__img-wrap {
+  .collection__img-wrap {
     padding: 20px;
     text-align: center;
     background-color: rgba(235, 235, 235, 1);
     border-radius: 10px 10px 0 0;
   }
 
-  .catalog__item-info {
+  .collection__item-info {
     padding: 10px;
     background-color: rgba(245, 245, 245, 1);
     border-radius: 0 0 10px 10px;
     color: black;
   }
 
-  .catalog__item-title {
+  .collection__item-title {
     margin-bottom: 5px;
   }
 
-  .catalog__item-price {
+  .collection__item-price {
     font-weight: 500;
   }
 
   @include mobile {
-    .catalog__content {
+    .collection__content {
       padding: 15px;
     }
 
@@ -926,23 +926,15 @@ body {
 }
 
 .stats {
-  .stats__block {
+  .stats__content {
+    background: #fff;
     padding: 40px;
     display: flex;
     flex-direction: column;
     gap: 50px;
     border-radius: 10px;
-
+    box-shadow: 0px 1px 15px 0px rgba(0, 0, 0, 0.15);
     margin-bottom: 40px;
-
-    &--main,
-    &--default {
-      background: #fff;
-    }
-
-    &--main {
-      box-shadow: 0px 1px 15px 0px rgba(0, 0, 0, 0.15);
-    }
   }
 
   .stats__header {

@@ -2,7 +2,6 @@ export {
   Index,
   Profile,
   Lot,
-  News,
   Stats,
   Registration,
   Login,

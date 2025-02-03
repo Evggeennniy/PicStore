@@ -79,15 +79,6 @@ export const Header = () => {
             </li>
             <li className="header__item">
               <NavLink
-                to="/news"
-                className="header__link"
-                onClick={handleNavToggle}
-              >
-                Новини
-              </NavLink>
-            </li>
-            <li className="header__item">
-              <NavLink
                 to="/stats"
                 className="header__link"
                 onClick={handleNavToggle}

@@ -116,227 +116,227 @@ export const Profile = () => {
           </div>
         </div>
       </section>
-      <section className="catalog">
-        <div className="catalog__wrapper container">
-          <div className="catalog__content">
-            <div className="catalog__header">
-              <h4 className="catalog__title">Картини автора</h4>
+      <section className="collection">
+        <div className="collection__wrapper container">
+          <div className="collection__content">
+            <div className="collection__header">
+              <h4 className="collection__title">Картини автора</h4>
               <div className="line"></div>
               {/* !!! TODO FILTER/SORT */}
-              {/* <div className="catalog__nav">
-                <button id="filter-btn" className="catalog__nav-btn">
+              {/* <div className="collection__nav">
+                <button id="filter-btn" className="collection__nav-btn">
                   <FilterIcon />
                 </button>
                 <button
                   id="sort-btn"
-                  className="catalog__nav-btn catalog__nav-btn--primary"
+                  className="collection__nav-btn collection__nav-btn--primary"
                 >
                   <SortIcon />
                 </button>
               </div> */}
             </div>
-            <ul className="catalog__list">
-              <li className="catalog__item">
-                <NavLink to="/lot" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+            <ul className="collection__list">
+              <li className="collection__item">
+                <NavLink to="/lot" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-1.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink to="/lot" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink to="/lot" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-2.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink to="/lot" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink to="/lot" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-3.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink to="/lot" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink to="/lot" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-4.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink to="/lot" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink to="/lot" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-1.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink to="/lot" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink to="/lot" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-2.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink to="/lot" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink to="/lot" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-3.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink to="/lot" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink to="/lot" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-4.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink to="/lot" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink to="/lot" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-1.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink to="/lot" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink to="/lot" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-2.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink to="/lot" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink to="/lot" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-3.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink to="/lot" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink to="/lot" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-4.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
@@ -436,215 +436,215 @@ export const Lot = () => {
           </div>
         </div>
       </section>
-      <section className="catalog">
-        <div className="catalog__wrapper container">
-          <div className="catalog__content">
-            <div className="catalog__header">
-              <h4 className="catalog__title">Рекомендації</h4>
+      <section className="collection">
+        <div className="collection__wrapper container">
+          <div className="collection__content">
+            <div className="collection__header">
+              <h4 className="collection__title">Рекомендації</h4>
               <div className="line"></div>
             </div>
-            <ul className="catalog__list">
-              <li className="catalog__item">
-                <NavLink href="/lot.html" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+            <ul className="collection__list">
+              <li className="collection__item">
+                <NavLink href="/lot.html" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-1.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink href="/lot.html" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink href="/lot.html" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-2.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink href="/lot.html" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink href="/lot.html" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-3.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink href="/lot.html" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink href="/lot.html" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-4.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink href="/lot.html" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink href="/lot.html" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-1.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink href="/lot.html" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink href="/lot.html" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-2.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink href="/lot.html" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink href="/lot.html" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-3.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink href="/lot.html" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink href="/lot.html" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-4.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink href="/lot.html" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink href="/lot.html" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-1.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink href="/lot.html" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink href="/lot.html" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-2.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink href="/lot.html" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink href="/lot.html" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-3.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
-              <li className="catalog__item">
-                <NavLink href="/lot.html" className="catalog__item-link">
-                  <div className="catalog__img-wrap">
+              <li className="collection__item">
+                <NavLink href="/lot.html" className="collection__item-link">
+                  <div className="collection__img-wrap">
                     <img
-                      className="catalog__item-img"
+                      className="collection__item-img"
                       src={`${process.env.PUBLIC_URL}/images/paining-4.png`}
                       alt="painting"
                     />
                   </div>
-                  <div className="catalog__item-info">
-                    <h5 className="catalog__item-title">
+                  <div className="collection__item-info">
+                    <h5 className="collection__item-title">
                       Тиша гармонії: лінії що об'єднують
                     </h5>
-                    <h5 className="catalog__item-price">2500 $</h5>
+                    <h5 className="collection__item-price">2500 $</h5>
                   </div>
                 </NavLink>
               </li>
@@ -656,16 +656,6 @@ export const Lot = () => {
   );
 };
 
-export const News = () => {
-  useScrollToTop();
-
-  return (
-    <main className="main">
-      <div className="container">Новини</div>
-    </main>
-  );
-};
-
 export const Stats = () => {
   useScrollToTop();
 
@@ -673,7 +663,7 @@ export const Stats = () => {
     <main className="main">
       <section className="stats">
         <div className="stats__wrap container">
-          <div className="stats__block stats__block--main">
+          <div className="stats__content">
             <div className="stats__header">
               <div className="stats__title">
                 <StatsIcon className="stats__header-icon svg svg--big" />
@@ -734,6 +724,13 @@ export const Stats = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="collections">
+        <div className="collections__wrap container">
+          <div className="collections__content">
+            <div className="collections__list"></div>
           </div>
         </div>
       </section>
