@@ -5,7 +5,7 @@ import {
   Index,
   Profile,
   Lot,
-  Stats,
+  Analytic,
   Login,
   Registration,
   NotFound,
@@ -19,7 +19,7 @@ export const Page = () => {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/stats" element={<Stats />} />
+        <Route path="/stats" element={<Analytic />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/login" element={<Login />} />
         <Route path="/lot" element={<Lot />} />
