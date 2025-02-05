@@ -7,7 +7,6 @@
 
 # testing
 /coverage
-api.py
 /src/tests
 
 # production

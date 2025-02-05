@@ -106,7 +106,7 @@ export const Profile = () => {
         <div className="collection__wrapper container">
           <div className="collection__content">
             <div className="collection__header">
-              <h4 className="collection__title">Картини автора</h4>
+              <h4 className="collection__title">Колекцiя автора</h4>
               <div className="line"></div>
               {/* !!! TODO FILTER/SORT */}
               {/* <div className="collection__nav">

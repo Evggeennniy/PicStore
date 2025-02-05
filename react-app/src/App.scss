@@ -425,6 +425,10 @@ body {
       transition: stroke 200ms ease-in-out;
       stroke: #1c274c;
     }
+
+    &--black {
+      fill: black;
+    }
   }
 
   &:hover {
@@ -682,6 +686,7 @@ body {
   .collection__title {
     font-weight: 500;
     margin-right: 20px;
+    text-wrap: nowrap;
   }
 
   .line {
@@ -925,8 +930,8 @@ body {
   }
 }
 
-.stats {
-  .stats__content {
+.profile-stats {
+  .profile-stats__content {
     background: #fff;
     padding: 40px;
     display: flex;
@@ -937,14 +942,14 @@ body {
     margin-bottom: 40px;
   }
 
-  .stats__header {
+  .profile-stats__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 50px;
   }
 
-  .stats__switcher {
+  .profile-stats__switcher {
     position: relative;
     appearance: none;
     -webkit-appearance: none;
@@ -954,13 +959,22 @@ body {
     border: 1px solid #e3e3e3;
     text-align: center;
     font-weight: 500;
+    transition: border 500ms ease-in-out;
+
+    &:hover {
+      border: 1px solid gray;
+    }
+
+    &:focus {
+      outline: none;
+    }
   }
 
-  .stats__btn {
+  .profile-stats__btn {
     position: relative;
   }
 
-  .stats__title {
+  .profile-stats__title {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -976,82 +990,137 @@ body {
     }
   }
 
-  .stats__table {
+  .profile-stats__table {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  .stats__table-inner {
+  .profile-stats__table-inner {
     display: flex;
     gap: 70px;
   }
 
-  .stats__icon {
+  .profile-stats__icon {
     padding: 10px;
     border-radius: 10px;
     background: #0a0a0a;
   }
 
-  .stats__item {
+  .profile-stats__item {
     display: flex;
     align-items: start;
     gap: 10px;
   }
 
-  .stats__value {
+  .profile-stats__value {
     text-wrap: nowrap;
     margin-bottom: 5px;
   }
 
-  .stats__subtitle {
+  .profile-stats__subtitle {
     letter-spacing: 1px;
   }
 
   @include netbook {
-    .stats__table {
+    .profile-stats__table {
       flex-direction: column-reverse;
       gap: 20px;
     }
   }
 
   @include tab {
-    .stats__switcher {
+    .profile-stats__switcher {
       padding: 5px 10px;
     }
 
-    .stats__header {
+    .profile-stats__header {
       flex-direction: column-reverse;
       align-items: start;
       gap: 15px;
     }
 
-    .stats__table,
-    .stats__table-inner {
+    .profile-stats__table,
+    .profile-stats__table-inner {
       flex-direction: column;
       gap: 20px;
     }
 
-    .stats__table {
+    .profile-stats__table {
       align-items: start;
     }
   }
 
   @include mobile {
-    .stats__block {
+    .profile-stats__block {
       padding: 20px;
       gap: 30px;
     }
 
-    .stats__header-icon {
+    .profile-stats__header-icon {
       padding: 5px;
       height: 30px;
       width: 30px;
     }
 
-    .stats__icon {
+    .profile-stats__icon {
       height: 20px;
       width: 20px;
+    }
+  }
+}
+
+.collection-stats {
+  .collection-stats__header {
+    margin-bottom: 30px;
+  }
+}
+
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .items-list__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &--col {
+      flex-direction: column;
+      align-items: start;
+    }
+  }
+
+  .items-list__link {
+    flex: 1;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    color: black;
+  }
+
+  .items-list__item {
+    border-radius: 10px;
+    background: #fff;
+  }
+
+  .items-list__item-img {
+    height: 50px;
+  }
+
+  @include mobile {
+    .items-list__wrapper {
+      gap: 7px;
+    }
+
+    .items-list__link {
+      padding: 10px 15px;
+    }
+
+    .items-list__icon {
+      height: 30px;
     }
   }
 }
