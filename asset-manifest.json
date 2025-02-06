@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/PicStore/static/css/main.eea71e3a.css",
-    "main.js": "/PicStore/static/js/main.1b4462a8.js",
+    "main.css": "/PicStore/static/css/main.ffb9b7b9.css",
+    "main.js": "/PicStore/static/js/main.156add50.js",
     "static/js/488.6d5d2703.chunk.js": "/PicStore/static/js/488.6d5d2703.chunk.js",
     "static/media/basket.svg": "/PicStore/static/media/basket.046642a6efc3997597e02f7f51355bbd.svg",
     "static/media/experience.svg": "/PicStore/static/media/experience.1c6f23c8f3fc150e2cccc4d2227d7aca.svg",
@@ -14,12 +14,12 @@
     "static/media/place.svg": "/PicStore/static/media/place.06dd052bf412f730534bf9ee6b1b2d7e.svg",
     "index.html": "/PicStore/index.html",
     "static/media/search.svg": "/PicStore/static/media/search.e88e84f3b76cc8f8617469acec2df5e6.svg",
-    "main.eea71e3a.css.map": "/PicStore/static/css/main.eea71e3a.css.map",
-    "main.1b4462a8.js.map": "/PicStore/static/js/main.1b4462a8.js.map",
+    "main.ffb9b7b9.css.map": "/PicStore/static/css/main.ffb9b7b9.css.map",
+    "main.156add50.js.map": "/PicStore/static/js/main.156add50.js.map",
     "488.6d5d2703.chunk.js.map": "/PicStore/static/js/488.6d5d2703.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eea71e3a.css",
-    "static/js/main.1b4462a8.js"
+    "static/css/main.ffb9b7b9.css",
+    "static/js/main.156add50.js"
   ]
 }
