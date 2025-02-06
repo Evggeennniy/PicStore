@@ -944,6 +944,67 @@ body {
   }
 }
 
+.auth {
+  display: flex;
+  justify-content: center;
+}
+.auth .auth__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 400px;
+}
+.auth .auth__header {
+  text-align: center;
+}
+.auth .auth__title {
+  margin-bottom: 15px;
+}
+.auth .auth__status-line {
+  height: 2px;
+  border-radius: 5px;
+  width: 100%;
+  background-color: #eeeefa;
+}
+.auth .auth__block {
+  width: 100%;
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+.auth .auth__form,
+.auth .auth__field {
+  display: flex;
+  flex-direction: column;
+}
+.auth .auth__form {
+  gap: 20px;
+}
+.auth .auth__field {
+  gap: 5px;
+}
+.auth .auth__input,
+.auth .auth__btn {
+  font-size: 16px;
+}
+.auth .auth__input {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background: #f4f8f7;
+}
+.auth .auth__btn {
+  color: white;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background: #0a0a0a;
+}
+.auth .checkmark {
+  color: gray;
+}
+
 .footer {
   padding: 60px 0 60px;
   margin-top: 100px;

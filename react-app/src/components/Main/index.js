@@ -1,5 +1,6 @@
 export { Analytic } from "./MainAnalytic";
-export { Registration, Login } from "./MainAuth";
+export { Login } from "./MainLogin";
+export { Registration } from "./MainRegist";
 export { Lot } from "./MainLot";
 export { NotFound } from "./MainNotFound";
 export { Profile } from "./MainProfile";
