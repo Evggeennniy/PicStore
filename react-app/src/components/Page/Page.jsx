@@ -14,16 +14,16 @@ import { Footer } from "../Footer";
 
 export const Page = () => {
   return (
-    <Router basename="PicStore">
+    <Router>
       <Header />
       <Routes>
         <Route path="/" element={<Index />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/:username" element={<Profile />} />
         <Route path="/stats" element={<Analytic />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/lot" element={<Lot />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/lots/:lotId" element={<Lot />} />
+        <Route path="/errors/404" element={<NotFound />} />
       </Routes>
       <Footer />
     </Router>
