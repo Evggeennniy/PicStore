@@ -1,4 +1,5 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
+import { useEffect, useRef } from "react";
 
 import { useScrollToTop } from "../../utils/request";
 
@@ -7,6 +8,49 @@ import { ReactComponent as BasketIcon } from "../../assets/svg/basket.svg";
 export const Lot = () => {
   useScrollToTop();
 
+  const { lotId } = useParams();
+
+  const lotImage = useRef();
+  const lotName = useRef();
+  const lotPrice = useRef();
+  const lotWidth = useRef();
+  const lotHeight = useRef();
+  const lotTechnique = useRef();
+  const lotDescription = useRef();
+
+  function fillUpPage(json) {
+    console.log(json);
+    const lot = json.lot;
+
+    lotImage.current.style = `content: url('${process.env.REACT_APP_API_STATIC_URL}/${lot.image}')`;
+    lotName.current.textContent = lot.name;
+    lotPrice.current.textContent = lot.price;
+    lotWidth.current.textContent = lot.width;
+    lotHeight.current.textContent = lot.height;
+    lotTechnique.current.textContent = lot.technique.name;
+    lotDescription.current.textContent = lot.description;
+  }
+
+  async function getLotData(lotId) {
+    return fetch(`${process.env.REACT_APP_API_BASE_URL}/lots/${lotId}`)
+      .then((response) => response.json())
+      .then((json) => {
+        if (json.lot !== null) {
+          fillUpPage(json);
+        } else {
+          throw TypeError("Lot not found");
+        }
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }
+
+  useEffect(() => {
+    getLotData(lotId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lotId]);
+
   return (
     <main className="main">
       <section className="product">
@@ -14,13 +58,13 @@ export const Lot = () => {
           <div className="product__view">
             <div className="product__img-wrap product__img-wrap--big">
               <img
-                src={`${process.env.PUBLIC_URL}/images/general-lot-img.png`}
                 alt="current-product-img"
                 className="product__img product__img--big"
                 id="current-product-img"
+                ref={lotImage}
               />
             </div>
-            <ul className="product__list">
+            {/* <ul className="product__list">
               <li className="product__list-item">
                 <div className="product__img-wrap product__img-wrap--small">
                   <img
@@ -48,36 +92,44 @@ export const Lot = () => {
                   />
                 </div>
               </li>
-            </ul>
+            </ul> */}
           </div>
           <div className="product__info">
             <div className="product__info-wrap">
-              <h4 className="product__title product__title--bold">
-                Тиша гармонії: лінії що об'єднують
+              <h4 className="product__title product__title--bold" ref={lotName}>
+                -
               </h4>
               <h4 className="product__price">
-                3500$ <span className="font--light">фікс лот</span>
+                <span id="price-value" ref={lotPrice}>
+                  -
+                </span>{" "}
+                $ <span className="font--light">фікс лот</span>
               </h4>
               <div className="product__props">
                 <div className="product__property">
                   <h6 className="product__title product__label">Розмір:</h6>
-                  <h6 className="product__value">123x103</h6>
+                  <h6 className="product__value">
+                    <span id="product-width" ref={lotWidth}>
+                      -
+                    </span>{" "}
+                    x{" "}
+                    <span id="product-height" ref={lotHeight}>
+                      -
+                    </span>
+                  </h6>
                 </div>
                 <div className="product__property">
                   <h6 className="product__title product__label">Техніка:</h6>
-                  <h6 className="product__value">Масляна</h6>
+                  <h6 className="product__value" ref={lotTechnique}>
+                    -
+                  </h6>
                 </div>
               </div>
             </div>
             <div className="product__info-wrap">
               <h6 className="product__title product__title--bold">Опис лоту</h6>
-              <h6 className="product__title">
-                Картина наповнена яскравими теплими тонами, що переносять у світ
-                східних мотивів. У композиції гармонійно переплітаються фігури,
-                архітектурні елементи та декоративні візерунки, які символізують
-                багатство культури. Центральні образи — схожі на музикантів або
-                жителів стародавнього міста, створюють відчуття руху та мелодії.
-                Полотно передає атмосферу свята та спокою одночасно.
+              <h6 className="product__title" ref={lotDescription}>
+                -
               </h6>
             </div>
             <div className="product__info-wrap product__nav">

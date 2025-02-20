@@ -79,11 +79,7 @@ export const Profile = () => {
               <div className="author__about">
                 <div className="author__about-top">
                   <div className="author__img-wrap">
-                    <img
-                      ref={userAvatarRef}
-                      alt="author-image"
-                      className="author__img"
-                    />
+                    <div ref={userAvatarRef} className="author__img"></div>
                   </div>
                   <ul className="author__contact-list">
                     <li className="author__contact-link">
