@@ -870,6 +870,7 @@ body {
   }
 
   .product__value {
+    text-wrap: nowrap;
     padding: 5px 20px;
     border-radius: 5px;
     border: 1px solid #0a0a0a;
@@ -902,6 +903,8 @@ body {
     }
 
     .product__img {
+      display: block;
+
       &--big {
         height: auto;
         min-width: 120px;
@@ -919,6 +922,10 @@ body {
 
     .product__props {
       gap: 20px;
+    }
+
+    .product__value {
+      padding: 5px 15px;
     }
 
     .product__nav {
