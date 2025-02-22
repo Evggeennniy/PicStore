@@ -1,0 +1,13 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# migrations
+versions/
+
+# env
+.env
+
+# cache 
+__pycache__/
+
+# tests
+database.db
