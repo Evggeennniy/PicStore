@@ -275,6 +275,14 @@ body {
   }
 }
 
+.main {
+  padding: 120px 0 0;
+
+  @include mobile {
+    padding: 80px 0 0;
+  }
+}
+
 .header {
   position: fixed;
   z-index: 10;
@@ -489,16 +497,6 @@ body {
         left: 20px;
       }
     }
-  }
-}
-
-.main,
-.footer {
-  position: relative;
-  top: 120px;
-
-  @include mobile {
-    top: 80px;
   }
 }
 
@@ -925,7 +923,7 @@ body {
     }
 
     .product__value {
-      padding: 5px 15px;
+      padding: 5px 12px;
     }
 
     .product__nav {
