@@ -7,10 +7,8 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, Depends, Form
 from fastapi.staticfiles import StaticFiles
 
-# FastAPI-Admin импорт
 from fastapi_admin.app import app as admin_app
 from fastapi_admin.depends import get_current_admin, get_resources
-from fastapi_admin.providers.login import UsernamePasswordProvider
 from fastapi_admin.exceptions import (
     forbidden_error_exception,
     not_found_error_exception,
@@ -18,7 +16,6 @@ from fastapi_admin.exceptions import (
     unauthorized_error_exception,
 )
 
-from starlette.requests import Request
 from starlette.middleware.cors import CORSMiddleware
 from starlette.status import (
     HTTP_401_UNAUTHORIZED,
@@ -27,24 +24,13 @@ from starlette.status import (
     HTTP_500_INTERNAL_SERVER_ERROR,
 )
 
-# Tortoise ORM импорт
 from tortoise.contrib.fastapi import register_tortoise
 
-from models import Admin
+import admin
+import routes
 import settings
-
-
-class LoginProvider(UsernamePasswordProvider):
-    async def password(
-        self,
-        request: Request,
-        old_password: str = Form(...),
-        new_password: str = Form(...),
-        re_new_password: str = Form(...),
-        admin: Admin = Depends(get_current_admin),
-        resources=Depends(get_resources),
-    ):
-        return await self.logout(request)
+import providers
+from models import Admin
 
 
 @asynccontextmanager
@@ -58,7 +44,7 @@ async def lifespan(app: FastAPI):
         logo_url="https://preview.tabler.io/static/logo-white.svg",
         favicon_url="https://raw.githubusercontent.com/fastapi-admin/fastapi-admin/dev/images/favicon.png",
         providers=[
-            LoginProvider(
+            providers.LoginProvider(
                 login_logo_url="https://preview.tabler.io/static/logo.svg",
                 admin_model=Admin,
             )
@@ -69,8 +55,6 @@ async def lifespan(app: FastAPI):
 
 
 def create_app():
-    import admin
-    import routes
 
     app = FastAPI(lifespan=lifespan, debug=True)
     app.mount("/static", StaticFiles(directory=settings.UPLOAD_DIR), name="static")
