@@ -1,81 +1,72 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Boolean, Text
-from sqlalchemy.orm import relationship
-from database import Base
-from fastapi_admin.models import AbstractAdmin
+import os
+from tortoise import fields, models
+
+UPLOAD_DIR = os.path.join(os.getcwd(), "static", "uploads")
 
 
-# Модель User
-class User(Base):
-    __tablename__ = "users"
+class User(models.Model):
+    id = fields.IntField(pk=True)
+    username = fields.CharField(max_length=16, unique=True, index=True)
+    name = fields.CharField(max_length=16)
+    surname = fields.CharField(max_length=16)
+    about = fields.TextField(null=True)
+    phone_number = fields.CharField(max_length=20, null=True)
+    telegram = fields.CharField(max_length=64, null=True)
+    tiktok = fields.CharField(max_length=64, null=True)
+    instagram = fields.CharField(max_length=64, null=True)
+    country = fields.CharField(max_length=64, null=True)
+    city = fields.CharField(max_length=16, null=True)
+    experience = fields.IntField(default=0)
+    closed_deals = fields.IntField(default=0)
+    is_active = fields.BooleanField(default=False)
+    is_admin = fields.BooleanField(default=False)
+    password = fields.CharField(max_length=128)
 
-    id = Column(Integer, autoincrement=True, primary_key=True,)
-    avatar = Column(String(64), nullable=True)
-    background = Column(String(64), nullable=True)
-    username = Column(String(16), index=True, unique=True, nullable=False)
-    name = Column(String(16), nullable=False)
-    surname = Column(String(16), nullable=False)
-    about = Column(String(512), nullable=True)
-    phone_number = Column(Integer, nullable=True)
-    telegram = Column(String(64), nullable=True)
-    tiktok = Column(String(64), nullable=True)
-    instagram = Column(String(64), nullable=True)
-    country = Column(String(64), nullable=True)
-    city = Column(String(16), nullable=True)
-    experience = Column(Integer, default=0)
-    open_deals = Column(Integer, default=0)  # Delete
-    closed_deals = Column(Integer, default=0)
-    is_active = Column(Boolean, default=False)
-    is_admin = Column(Boolean, default=False)
-    password = Column(String(128), nullable=False)
+    avatar = fields.CharField(max_length=255, null=True)
+    background = fields.CharField(max_length=255, null=True)
 
-    collections = relationship('Collection', back_populates='owner')
+    collections = fields.ReverseRelation["Collection"]
 
     def __str__(self):
         return self.username
 
-
-# Модель Technique
-class Technique(Base):
-    __tablename__ = "techniques"
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(16), nullable=False)
-
-    paintings = relationship('Painting', back_populates='technique')
-
-    def __str__(self):
-        return self.name
+    def get_upload_path(self, file_type: str) -> str:
+        subdir = "avatars" if file_type == "avatar" else "backgrounds"
+        return os.path.join(UPLOAD_DIR, subdir, f"user_{self.id}.jpg")
 
 
-# Модель Collection
-class Collection(Base):
-    __tablename__ = "collections"
+class Technique(models.Model):
+    id = fields.IntField(pk=True)
+    name = fields.CharField(max_length=16)
 
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(16), nullable=False)
-    owner_id = Column(Integer, ForeignKey('users.id'), nullable=True)
-    owner = relationship('User', back_populates='collections')
-    paintings = relationship('Painting', back_populates='collection')
+    paintings = fields.ReverseRelation["Painting"]
 
     def __str__(self):
         return self.name
 
 
-class Painting(Base):
-    __tablename__ = "paintings"
+class Collection(models.Model):
+    id = fields.IntField(pk=True)
+    name = fields.CharField(max_length=16)
+    owner = fields.ForeignKeyField("models.User", related_name="collections")
 
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    image = Column(String(64), nullable=False)
-    name = Column(String(32), nullable=False)
-    description = Column(String(512), nullable=False)
-    height = Column(Integer, nullable=False)
-    width = Column(Integer, nullable=False)
-    price = Column(Integer, nullable=False)
+    paintings = fields.ReverseRelation["Painting"]
 
-    technique_id = Column(Integer, ForeignKey('techniques.id'), nullable=True)
-    technique = relationship('Technique', back_populates='paintings')
-    collection_id = Column(Integer, ForeignKey('collections.id'), nullable=True)
-    collection = relationship('Collection', back_populates='paintings')
+    def __str__(self):
+        return self.name
+
+
+class Painting(models.Model):
+    id = fields.IntField(pk=True)
+    image = fields.CharField(max_length=255)
+    name = fields.CharField(max_length=32)
+    description = fields.TextField()
+    height = fields.IntField()
+    width = fields.IntField()
+    price = fields.IntField()
+
+    technique = fields.ForeignKeyField("models.Technique", related_name="paintings", null=True)
+    collection = fields.ForeignKeyField("models.Collection", related_name="paintings", null=True)
 
     def __str__(self):
         return self.name
