@@ -1,7 +1,12 @@
 import os
 from tortoise import fields, models
 
-UPLOAD_DIR = os.path.join(os.getcwd(), "static", "uploads")
+from fastapi_admin.models import AbstractAdmin
+import settings
+
+
+class Admin(AbstractAdmin):
+    pass
 
 
 class User(models.Model):
@@ -32,7 +37,7 @@ class User(models.Model):
 
     def get_upload_path(self, file_type: str) -> str:
         subdir = "avatars" if file_type == "avatar" else "backgrounds"
-        return os.path.join(UPLOAD_DIR, subdir, f"user_{self.id}.jpg")
+        return os.path.join(settings.UPLOAD_DIR, subdir, f"user_{self.id}.jpg")
 
 
 class Technique(models.Model):

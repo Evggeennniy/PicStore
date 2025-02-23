@@ -3,7 +3,9 @@ from fastapi import Query, Depends, HTTPException
 from fastapi.encoders import jsonable_encoder
 
 from tortoise.expressions import Q
-from models import User, Collection, Painting, Technique
+
+from models import Admin, User, Collection, Painting, Technique
+import settings
 
 
 async def index():
@@ -41,3 +43,14 @@ async def search_user(q: str = Query(...)):
 async def search_techniques(q: str = Query(...)):
     techniques = await Technique.filter(name__icontains=q).values("id", "name")
     return techniques
+
+
+async def create_admin(secret_admin_key: str, admin_username: str, admin_password: str):
+    if secret_admin_key == settings.SECRET_KEY:
+        await Admin.create(
+            username=admin_username,
+            password=admin_password
+        )
+    return {
+        'username': admin_username, 'password': admin_password
+    }
