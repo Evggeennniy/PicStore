@@ -15,3 +15,6 @@ database.db*
 
 # static
 uploads/
+
+# venv
+venv/

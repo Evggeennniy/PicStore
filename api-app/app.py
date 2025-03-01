@@ -4,11 +4,11 @@ import redis.asyncio as redis
 
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, Depends, Form
+from fastapi import FastAPI
+from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 
 from fastapi_admin.app import app as admin_app
-from fastapi_admin.depends import get_current_admin, get_resources
 from fastapi_admin.exceptions import (
     forbidden_error_exception,
     not_found_error_exception,
@@ -26,10 +26,11 @@ from starlette.status import (
 
 from tortoise.contrib.fastapi import register_tortoise
 
-import admin
 import routes
 import settings
 import providers
+import admin
+import resources
 from models import Admin
 
 
@@ -51,6 +52,7 @@ async def lifespan(app: FastAPI):
         ],
         redis=r,
     )
+
     yield
 
 
@@ -59,17 +61,25 @@ def create_app():
     app = FastAPI(lifespan=lifespan, debug=True)
     app.mount("/static", StaticFiles(directory=settings.UPLOAD_DIR), name="static")
 
-    app.add_api_route("/api", routes.index)
+    @app.get("/")
+    async def index():
+        return RedirectResponse(url="/admin")
+
     app.add_api_route("/api/users/{username}", routes.get_full_user_data)
     app.add_api_route("/api/lots/{lot_id}", routes.get_lot)
     app.add_api_route("/api/collections/", routes.search_collections)
     app.add_api_route("/api/techniques/", routes.search_techniques)
-    app.add_api_route("/create_admin/{secret_admin_key}/{admin_username}/{admin_password}", routes.create_admin)
+    app.add_api_route(
+        "/create_admin/{secret_admin_key}/{admin_username}/{admin_password}", routes.create_admin)
 
-    admin_app.add_exception_handler(HTTP_500_INTERNAL_SERVER_ERROR, server_error_exception)
-    admin_app.add_exception_handler(HTTP_404_NOT_FOUND, not_found_error_exception)
-    admin_app.add_exception_handler(HTTP_403_FORBIDDEN, forbidden_error_exception)
-    admin_app.add_exception_handler(HTTP_401_UNAUTHORIZED, unauthorized_error_exception)
+    admin_app.add_exception_handler(
+        HTTP_500_INTERNAL_SERVER_ERROR, server_error_exception)
+    admin_app.add_exception_handler(
+        HTTP_404_NOT_FOUND, not_found_error_exception)
+    admin_app.add_exception_handler(
+        HTTP_403_FORBIDDEN, forbidden_error_exception)
+    admin_app.add_exception_handler(
+        HTTP_401_UNAUTHORIZED, unauthorized_error_exception)
 
     app.mount("/admin", admin_app)
 
@@ -88,7 +98,7 @@ def create_app():
             "connections": {"default": settings.DATABASE_URL},
             "apps": {
                 "models": {
-                    "models": ["models",],
+                    "models": ["models"],
                     "default_connection": "default",
                 }
             },
@@ -100,6 +110,3 @@ def create_app():
 
 
 app_ = create_app()
-
-if __name__ == "__main__":
-    uvicorn.run("app:app_", reload=True)
